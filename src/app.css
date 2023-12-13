@@ -138,6 +138,12 @@ li {
 	margin-bottom: var(--size-3);
 }
 
+@media (min-width: 768px) {
+	.prose :where(h2, h3, h4, h5, h6, p, ul, li) {
+		max-inline-size: unset;
+	}
+}
+
 .prose p:not(:is(h2, h3, h4, h5, h6) + p) {
 	margin-top: var(--size-7);
 }
