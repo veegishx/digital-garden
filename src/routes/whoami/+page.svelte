@@ -54,7 +54,7 @@
 	}
 
 	.whoami > pre {
-		font-size: 10px;
+		font-size: 6px;
 	}
 
 	.whoami__details {
@@ -85,6 +85,9 @@
 	}
 
 	@media (min-width: 768px) {
+		.whoami > pre {
+			font-size: 10px;
+		}
 		.whoami__details {
 			grid-template-columns: repeat(2, 1fr);
 			grid-template-rows: repeat(3, 0.5fr);
