@@ -37,19 +37,16 @@ To achieve this desired outcome, I defined 2 buttons. One to start listening to 
 ```typescript
 // page.tsx
 "use client";
-import React from "react";
-import { io } from "socket.io-client";
+
+// Imports
 import RecordRTC, { StereoAudioRecorder } from "recordrtc";
-import { useRef } from "react";
+...
 
 export default function Dashboard() {
   // Refs for our start & stop buttons
   const startRecordingRef = useRef<HTMLButtonElement | null>(null);
   const stopRecordingRef = useRef<HTMLButtonElement | null>(null);
-
   let recordAudio: RecordRTC;
-	// Initialize our socket connection
-  const socketio = io("http://MY_SOCKET_SERVER_IP:SERVER_PORT");
 
   // Handle user voice input
   const handleStartRecording = () => {
@@ -64,25 +61,13 @@ export default function Dashboard() {
           audio: true,
         })
         .then((stream: MediaStream) => {
-          recordAudio = new RecordRTC(stream, {
-            type: "audio",
-            mimeType: "audio/webm",
-            sampleRate: 44100,
-            desiredSampRate: 16000,
-            recorderType: StereoAudioRecorder,
-            numberOfAudioChannels: 1,
-          });
+          recordAudio = new RecordRTC(stream, {...});
 
           recordAudio.startRecording();
         });
     } else {
-      console.log("getUserMedia NOT supported.");
+      ...
     }
-  };
-
-	// Handle sending the voice input to the server
-  const handleStopRecording = () => {
-		// socketio.emit() the recorded audio file
   };
 
   return (
@@ -122,17 +107,15 @@ To implement the component using `next/dynamic`, I had to do some refactoring. I
 
 ```typescript
 // StreamMicrophone.tsx
-import { io } from "socket.io-client";
+// Imports
 import RecordRTC, { StereoAudioRecorder } from "recordrtc";
-import { useRef } from "react";
+...
 
 const StreamMicrophone = () => {
   const startRecordingRef = useRef<HTMLButtonElement | null>(null);
   const stopRecordingRef = useRef<HTMLButtonElement | null>(null);
-
   let recordAudio: RecordRTC;
-  const socketio = io("http://MY_SOCKET_SERVER_IP:SERVER_PORT");
-
+  ...
   const handleStartRecording = () => {
     const browserNavigator = window.navigator;
     if (startRecordingRef.current && stopRecordingRef.current) {
@@ -145,58 +128,16 @@ const StreamMicrophone = () => {
           audio: true,
         })
         .then((stream: MediaStream) => {
-          recordAudio = new RecordRTC(stream, {
-            type: "audio",
-            mimeType: "audio/webm",
-            sampleRate: 44100,
-            desiredSampRate: 16000,
-            recorderType: StereoAudioRecorder,
-            numberOfAudioChannels: 1,
-          });
+          recordAudio = new RecordRTC(stream, {...});
           recordAudio.startRecording();
         });
     } else {
       console.log("getUserMedia NOT supported.");
     }
   };
+  ...
 
-	// Stop recording audio and send to server for processing
-  const handleStopRecording = () => {
-    if (startRecordingRef.current && stopRecordingRef.current) {
-      startRecordingRef.current.disabled = false;
-      stopRecordingRef.current.disabled = true;
-    }
-
-    recordAudio.stopRecording(() => {
-      recordAudio.getDataURL((audioDataURL: string) => {
-        const capturedAudio = {
-          audio: {
-            type: recordAudio.getBlob().type || "audio/wav",
-            dataURL: audioDataURL,
-						lang: 'fr'
-          },
-        };
-        socketio.emit("message", capturedAudio);
-      });
-    });
-  };
-
-  return (
-    <div>
-      <button
-        ref={startRecordingRef}
-        onClick={handleStartRecording}
-      >
-        Start Recording
-      </button>
-      <button
-        ref={stopRecordingRef}
-        onClick={handleStopRecording}
-      >
-        Stop Recording
-      </button>
-    </div>
-  );
+  return (// buttons);
 };
 
 export default StreamMicrophone;
