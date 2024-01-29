@@ -39,7 +39,6 @@
 	}
 
 	h1 {
-		text-transform: capitalize;
 		font-size: var(--font-size-6);
 		max-inline-size: var(--size-header-3);
 	}
