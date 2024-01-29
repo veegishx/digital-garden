@@ -10,10 +10,10 @@
 	<meta property="og:title" content={data.meta.title} />
 </svelte:head>
 
-<article>
+<article class="markdown-content">
 	<header>
+		<p>Initially published on {formatDate(data.meta.date)}</p>
 		<h1>{data.meta.title}</h1>
-		<p>Published at {formatDate(data.meta.date)}</p>
 	</header>
 
 	<div class="tags">
@@ -28,12 +28,18 @@
 </article>
 
 <style>
+	header > p {
+		margin-inline: auto;
+		text-align: center;
+	}
 	article {
 		max-inline-size: var(--size-content-3);
+		writing-mode: horizontal-tb;
 		margin-inline: auto;
 	}
 
 	h1 {
+		text-transform: capitalize;
 		font-size: var(--font-size-6);
 		max-inline-size: var(--size-header-3);
 	}
@@ -45,6 +51,8 @@
 
 	.tags {
 		display: flex;
+		flex-wrap: wrap;
+		justify-content: center;
 		gap: var(--size-3);
 		margin-top: var(--size-7);
 	}
@@ -52,5 +60,16 @@
 	.tags > * {
 		padding: var(--size-2) var(--size-3);
 		border-radius: var(--radius-round);
+	}
+
+	@media (min-width: 768px) {
+		article {
+			max-inline-size: 1000px;
+		}
+		h1 {
+			font-size: var(--font-size-8);
+			text-align: center;
+			margin-inline: auto;
+		}
 	}
 </style>
