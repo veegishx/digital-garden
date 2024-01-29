@@ -16,6 +16,8 @@ html {
 	--surface-4-dark: var(--gray-9);
 	--background-dark: var(--gradient-8);
 	--border-dark: var(--gray-9);
+	--code-inline-fg: var(--indigo-8);
+	--code-inline-bg: var(--grey-9);
 
 	/* light */
 	--brand-light: var(--orange-10);
@@ -27,6 +29,8 @@ html {
 	--surface-4-light: var(--gray-3);
 	--background-light: none;
 	--border-light: var(--gray-4);
+	--code-inline-fg: var(--red-8);
+	--code-inline-bg: var(--gray-1);
 }
 
 :root {
@@ -35,12 +39,14 @@ html {
 	--brand: var(--brand-dark);
 	--text-1: var(--text-1-dark);
 	--text-2: var(--text-2-dark);
-	--surface-1: var(--surface-1-dark);
+	--surface-1: var(--su Read rface-1-dark);
 	--surface-2: var(--surface-2-dark);
 	--surface-3: var(--surface-3-dark);
 	--surface-4: var(--surface-4-dark);
 	--background: var(--background-dark);
 	--border: var(--border-dark);
+	--code-inline-fg: var(--indigo-8);
+	--code-inline-bg: var(--grey-9);
 }
 
 @media (prefers-color-scheme: light) {
@@ -56,6 +62,8 @@ html {
 		--surface-4: var(--surface-4-light);
 		--background: var(--background-light);
 		--border: var(--border-light);
+		--code-inline-fg: var(--red-8);
+		--code-inline-bg: var(--gray-1);
 	}
 }
 
@@ -71,6 +79,8 @@ html {
 	--surface-4: var(--surface-4-dark);
 	--background: var(--background-dark);
 	--border: var(--border-dark);
+	--code-inline-fg: var(--indigo-8);
+	--code-inline-bg: var(--grey-9);
 }
 
 [color-scheme='light'] {
@@ -85,6 +95,8 @@ html {
 	--surface-4: var(--surface-4-light);
 	--background: var(--background-light);
 	--border: var(--border-light);
+	--code-inline-fg: var(--red-8);
+	--code-inline-bg: var(--gray-1);
 }
 
 html,
@@ -103,6 +115,11 @@ img {
 	border-radius: var(--radius-3);
 }
 
+p {
+	max-inline-size: unset;
+	line-height: var(--font-lineheight-4);
+}
+
 ul,
 ol {
 	list-style: none;
@@ -111,6 +128,11 @@ ol {
 
 li {
 	padding-inline-start: 0;
+}
+
+p > code {
+	background: var(--code-inline-bg);
+	color: var(--code-inline-fg);
 }
 
 .surface-1 {
@@ -139,7 +161,7 @@ li {
 }
 
 @media (min-width: 768px) {
-	.prose :where(h2, h3, h4, h5, h6, p, ul, li) {
+	img .prose :where(h2, h3, h4, h5, h6, p, ul, li) {
 		max-inline-size: unset;
 	}
 }
@@ -163,4 +185,11 @@ li {
 	padding: var(--size-3);
 	border-radius: 8px;
 	tab-size: 2;
+	margin-top: var(--size-6);
+	margin-bottom: var(--size-6);
+}
+
+.embedded-image {
+	margin-top: var(--size-6);
+	margin-bottom: var(--size-6);
 }
