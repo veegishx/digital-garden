@@ -119,7 +119,6 @@ Luckily for us, next provides a way to lazy load components by using `next/dynam
 ## Implementing the solution
 
 To implement the component using `next/dynamic`, I had to do some refactoring. I moved the code from `page.tsx` to a separate component file which I called `StreamMicrophone.tsx` . We don’t need to use a `useEffect()` now so I got rid of it.
-cause
 
 ```typescript
 // StreamMicrophone.tsx
