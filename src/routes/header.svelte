@@ -26,6 +26,7 @@
 
 <style>
 	nav {
+		text-align: center;
 		padding-block: var(--size-7);
 	}
 
@@ -75,7 +76,7 @@
 	@media (min-width: 768px) {
 		nav {
 			display: flex;
-			justify-content: space-between;
+			justify-content: space-around;
 		}
 
 		.links {

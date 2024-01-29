@@ -22,8 +22,12 @@
 
 <style>
 	.posts {
+		height: 100%;
+		max-inline-size: 1440px;
 		display: grid;
-		gap: 2rem;
+		grid-template-rows: auto 1fr auto;
+		margin-inline: auto;
+		padding-inline: var(--size-7);
 	}
 
 	.post {

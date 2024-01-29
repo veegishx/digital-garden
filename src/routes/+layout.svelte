@@ -24,18 +24,16 @@
 <style>
 	.layout {
 		height: 100%;
-		max-inline-size: 1440px;
-		display: grid;
-		grid-template-rows: auto 1fr auto;
-		margin-inline: auto;
-		padding-inline: var(--size-7);
+		flex-direction: column;
 	}
 
 	main {
 		padding-block: var(--size-9);
+		padding-left: 25px;
+		padding-right: 25px;
 	}
 
-	@media (min-width: 1440px) {
+	@media (min-width: 768px) {
 		.layout {
 			padding-inline: 0;
 		}

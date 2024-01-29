@@ -10,6 +10,8 @@
 <style>
 	footer {
 		display: flex;
+		padding-left: 25px;
+		padding-right: 25px;
 		justify-content: space-between;
 		padding-block: var(--size-7);
 		border-top: 1px solid var(--border);
