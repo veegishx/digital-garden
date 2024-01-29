@@ -17,7 +17,7 @@ html {
 	--background-dark: var(--gradient-8);
 	--border-dark: var(--gray-9);
 	--code-inline-fg: var(--indigo-8);
-	--code-inline-bg: var(--grey-9);
+	--code-inline-bg: var(--gray-9);
 
 	/* light */
 	--brand-light: var(--orange-10);
@@ -46,7 +46,7 @@ html {
 	--background: var(--background-dark);
 	--border: var(--border-dark);
 	--code-inline-fg: var(--indigo-8);
-	--code-inline-bg: var(--grey-9);
+	--code-inline-bg: var(--gray-9);
 }
 
 @media (prefers-color-scheme: light) {
@@ -80,7 +80,7 @@ html {
 	--background: var(--background-dark);
 	--border: var(--border-dark);
 	--code-inline-fg: var(--indigo-8);
-	--code-inline-bg: var(--grey-9);
+	--code-inline-bg: var(--gray-9);
 }
 
 [color-scheme='light'] {
