@@ -32,6 +32,9 @@
 
 	.links {
 		margin-block: var(--size-7);
+		display: flex;
+		gap: 20px;
+		justify-content: center;
 	}
 
 	a {
@@ -77,12 +80,6 @@
 		nav {
 			display: flex;
 			justify-content: space-around;
-		}
-
-		.links {
-			display: flex;
-			gap: var(--size-7);
-			margin-block: 0;
 		}
 
 		.disclaimer {

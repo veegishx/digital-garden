@@ -22,7 +22,7 @@
 		{/each}
 	</div>
 
-	<div class="prose">
+	<div class="article-body">
 		<svelte:component this={data.content} />
 	</div>
 </article>
@@ -36,7 +36,6 @@
 		text-align: center;
 	}
 	article {
-		max-inline-size: var(--size-content-3);
 		writing-mode: horizontal-tb;
 		margin-inline: auto;
 	}
@@ -44,7 +43,6 @@
 	header > h1 {
 		font-size: var(--font-size-4);
 		text-wrap: wrap;
-		max-inline-size: var(--size-header-3);
 	}
 
 	@media (min-width: 768px) {

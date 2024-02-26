@@ -1,11 +1,13 @@
 ---
+author: Veegish Ramdani
 title: Test Post 1
 description: First Post Desc
 date: '2023-12-12'
 categories:
   - sveltekit
   - svelte
-published: false
+published: true
+featured: true
 ---
 
 <script>

@@ -27,12 +27,6 @@
 		flex-direction: column;
 	}
 
-	main {
-		padding-block: var(--size-9);
-		padding-left: 25px;
-		padding-right: 25px;
-	}
-
 	@media (min-width: 768px) {
 		.layout {
 			padding-inline: 0;

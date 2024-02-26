@@ -1,9 +1,11 @@
 @import '@fontsource/manrope';
 @import '@fontsource/jetbrains-mono';
+@import '@fontsource/bebas-neue';
 
 html {
 	/* font */
 	--font-sans: 'Manrope', sans-serif;
+	--font-bebas-neue: 'Bebas Neue', sans-serif;
 	--font-mono: 'JetBrains Mono', monospace;
 
 	/* dark */
@@ -47,6 +49,9 @@ html {
 	--border: var(--border-dark);
 	--code-inline-fg: var(--indigo-8);
 	--code-inline-bg: var(--gray-9);
+	--featured-tag-bg: white;
+	--featured-tag-fg: black;
+	--latest-posts-br: rgb(231, 231, 231);
 }
 
 @media (prefers-color-scheme: light) {
@@ -64,6 +69,9 @@ html {
 		--border: var(--border-light);
 		--code-inline-fg: var(--red-8);
 		--code-inline-bg: var(--gray-1);
+		--featured-tag-bg: black;
+		--featured-tag-fg: white;
+		--latest-posts-br: rgb(231, 231, 231);
 	}
 }
 
@@ -81,6 +89,9 @@ html {
 	--border: var(--border-dark);
 	--code-inline-fg: var(--indigo-8);
 	--code-inline-bg: var(--gray-9);
+	--featured-tag-bg: white;
+	--featured-tag-fg: black;
+	--latest-posts-br: rgb(231, 231, 231);
 }
 
 [color-scheme='light'] {
@@ -97,6 +108,9 @@ html {
 	--border: var(--border-light);
 	--code-inline-fg: var(--red-8);
 	--code-inline-bg: var(--gray-1);
+	--featured-tag-bg: black;
+	--featured-tag-fg: white;
+	--latest-posts-br: rgb(231, 231, 231);
 }
 
 html,
@@ -112,7 +126,7 @@ html {
 }
 
 img {
-	border-radius: var(--radius-3);
+	border-radius: 4px;
 }
 
 p {
@@ -165,32 +179,32 @@ text-wrap .surface-2 {
 	color: var(--text-1);
 }
 
-.prose :is(h2, h3, h4, h5, h6) {
+.article-body :is(h2, h3, h4, h5, h6) {
 	margin-top: var(--size-8);
 	margin-bottom: var(--size-3);
 }
 
 @media (min-width: 768px) {
-	img .prose :where(h2, h3, h4, h5, h6, p, ul, li) {
+	img .article-body :where(h2, h3, h4, h5, h6, p, ul, li) {
 		max-inline-size: unset;
 	}
 }
 
-.prose p:not(:is(h2, h3, h4, h5, h6) + p) {
+.article-body p:not(:is(h2, h3, h4, h5, h6) + p) {
 	margin-top: var(--size-7);
 }
 
-.prose :is(ul, ol) {
+.article-body :is(ul, ol) {
 	list-style-type: '❤️‍🔥';
 	padding-left: var(--size-5);
 }
 
-.prose :is(ul, ol) li {
+.article-body :is(ul, ol) li {
 	margin-block: var(--size-2);
 	padding-inline-start: var(--size-2);
 }
 
-.prose pre {
+.article-body pre {
 	text-wrap: wrap;
 	max-inline-size: 100%;
 	padding: var(--size-3);
@@ -200,7 +214,7 @@ text-wrap .surface-2 {
 	margin-bottom: var(--size-6);
 }
 
-.prose p {
+.article-body p {
 	text-wrap: wrap;
 }
 
