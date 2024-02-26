@@ -19,6 +19,7 @@
 <!-- Pick of the day: Display latest featured article -->
 <section class="above-fold-grid">
 	<div class="above-fold-grid__left-column">
+		<h2 class="column-label">Essays</h2>
 		<ul class="article-list">
 			{#each leftColumnData.slice(0, 3) as post}
 				<li class="article-list__item--large">
@@ -67,6 +68,7 @@
 		{/if}
 	</div>
 	<div class="above-fold-grid__right-column">
+		<h2 class="column-label">The Debug Log</h2>
 		<ul class="article-list">
 			{#each rightColumnData.slice(0, 6) as post}
 				<li class="article-list__item--small">
@@ -120,14 +122,80 @@
 	.featured-post h2 {
 		font-size: 55px;
 	}
+	.above-fold-grid {
+		display: grid;
+	}
+	.above-fold-grid__left-column {
+		display: flex;
+		flex-direction: column;
+		gap: 10px;
+		grid-column: span 6;
+		position: relative;
+
+		overflow: hidden;
+		order: 1;
+		margin: 0px auto;
+	}
+	.column-label {
+		text-transform: uppercase;
+		font-size: 18px;
+		font-family: var(--font-mono);
+		padding: 20px;
+		text-decoration: underline;
+	}
+	.above-fold-grid__left-column .article-list {
+		display: flex;
+		flex-direction: row;
+		flex-wrap: wrap;
+		gap: 10px;
+		justify-content: center;
+		align-items: center;
+	}
+	.above-fold-grid__middle-column {
+		order: 0;
+		grid-column: span 6;
+		position: relative;
+	}
+	.above-fold-grid__right-column {
+		order: 1;
+		grid-column: span 5;
+	}
 	.above-fold-grid__right-column ul {
 		position: relative;
 	}
-	.article-list__item--small .article-list__item-card img,
+	.article-list {
+		margin-bottom: 20px;
+	}
+	.article-list__item-card {
+		width: 100%;
+	}
+
+	.article-list__item--small .article-list__item-col {
+		display: flex;
+		flex-direction: column;
+	}
+
+	.article-list__item--small .article-list__item-card img {
+		display: none;
+	}
+	.article-list__item--small:nth-last-child(-n + 3) {
+		border: none;
+	}
+	ul li {
+		overflow: hidden;
+	}
+
 	.article-list__item--large .article-list__item-card img {
 		width: 100%;
 		border-radius: 0;
 		margin-bottom: 20px;
+	}
+
+	.article-list__item--large img {
+		height: 320px;
+		min-width: 100dvw;
+		max-width: unset;
+		max-height: unset;
 	}
 
 	.article-list__item--small .article-list__item-card img {
@@ -138,19 +206,19 @@
 		border-radius: 0;
 	}
 
-	.article-list__item--large .article-list__item-card img {
-		min-width: 300px;
-		max-width: 300px;
-		min-height: 200px;
-		max-height: 200px;
-		min-height: 65px;
+	.above-fold-grid__right-column ul li .article-list__item-card h2 {
+		font-size: 22px;
 	}
+
 	.article-list__item--small .article-list__item-card h2,
 	.article-list__item--large .article-list__item-card h2 {
 		font-size: 18px;
 		text-wrap: wrap;
 		max-inline-size: unset;
 		margin-bottom: 10px;
+	}
+	.article-list__item--small .article-list__item-card h2 {
+		font-weight: 100;
 	}
 	.article-list__item--small .article-list__item-author,
 	.article-list__item--large .article-list__item-author {
@@ -160,13 +228,21 @@
 
 	.article-list__item--small:not(:last-child),
 	.article-list__item--large:not(:last-child) {
-		border-bottom: 1px solid var(--articles-br);
+		border-bottom: unset;
+		margin-bottom: 20px;
+	}
+
+	.article-list__item-col h2,
+	.article-list__item-col .article-list__item-author {
+		padding: 0 20px;
 	}
 
 	.above-fold-grid__right-column ul li:nth-child(2)::before,
 	.above-fold-grid__right-column ul li:nth-child(2)::after {
 		display: none;
 	}
+
+	/** Small article cards */
 
 	@media (min-width: 768px) {
 		.above-fold-grid {
@@ -180,29 +256,22 @@
 			max-width: 1320px;
 			width: 100%;
 		}
-		.above-fold-grid__middle-column {
-			grid-column: span 6;
-			position: relative;
+		.above-fold-grid__left-column {
+			grid-column: span 4;
 		}
 		.above-fold-grid__middle-column::before {
-			background-color: var(--articles-br);
-			content: '';
-			height: 100%;
-			position: absolute;
-			left: calc(40px / -2);
-			top: 0;
-			width: 1px;
+			width: 0px;
 		}
-		.above-fold-grid__middle-column::after {
-			background-color: var(--articles-br);
-			content: '';
 
+		.above-fold-grid__middle-column::after {
 			width: 0px;
 		}
 		.above-fold-grid__right-column {
 			grid-column: 1/-1;
-			border-top: 1px solid;
+			border-top: 1px solid var(--articles-br);
+			border-bottom: 1px solid var(--articles-br);
 		}
+
 		.above-fold-grid__right-column ul {
 			display: grid;
 			grid-template-rows: 1fr 1fr;
@@ -215,9 +284,9 @@
 			display: inline;
 			background-color: var(--articles-br);
 			content: '';
-			height: 80%;
+			height: 70%;
 			position: absolute;
-			top: 10%;
+			top: 5%;
 			left: calc((100dvw / 3) - 20px);
 			width: 1px;
 		}
@@ -225,36 +294,41 @@
 			display: inline;
 			background-color: var(--articles-br);
 			content: '';
-			height: 80%;
+			height: 70%;
 			position: absolute;
-			top: 10%;
+			top: 5%;
 			right: calc((100dvw / 3) - 20px);
 			width: 1px;
 		}
 		.above-fold-grid__left-column {
-			display: flex;
-			flex-direction: column;
-			gap: 40px;
-			grid-column: span 4;
-			position: relative;
-			border-top: 1px solid var(--articles-br);
-			overflow: hidden;
+			order: unset;
+		}
+
+		.above-fold-grid__left-column .column-label,
+		.above-fold-grid__right-column .column-label {
+			text-align: center;
+			margin: 0px auto;
 		}
 
 		.above-fold-grid__right-column .article-list {
 			border-bottom: 1px solid black;
 		}
-
-		/** Small article cards */
-		.article-list__item--small:nth-last-child(-n + 3) {
-			border: none;
+		.article-list {
+			margin-bottom: unset;
 		}
 
+		.article-list__item--small:not(:last-child),
+		.article-list__item--large:not(:last-child) {
+			margin-bottom: unset;
+			border-bottom: 1px solid var(--articles-br);
+		}
+
+		/** Small article cards */
 		.article-list__item--small .article-list__item-card {
 			display: flex;
 			align-items: start;
 			justify-content: center;
-			padding: 15px 0;
+			padding: 15px 10px;
 		}
 
 		.article-list__item--small .article-list__item-col {
@@ -280,34 +354,26 @@
 			text-align: center;
 			justify-content: center;
 		}
+		.article-list__item--large .article-list__item-card img {
+			min-width: 300px;
+			max-width: 300px;
+			min-height: 200px;
+			max-height: 200px;
+			min-height: 65px;
+		}
+		.article-list__item-col h2,
+		.article-list__item-col .article-list__item-author {
+			padding: unset;
+		}
 	}
 	@media (min-width: 1024px) {
 		.above-fold-grid__right-column ul {
-			gap: 25px;
+			gap: 10px;
 		}
 		.article-list__item--small .article-list__item-card img {
 			display: inline;
 			margin-left: 10px;
 		}
-	}
-	@media (min-width: 1280px) {
-		.above-fold-grid {
-			display: grid;
-			gap: 40px;
-			grid-template-columns: repeat(16, 1fr);
-			overflow: hidden;
-			position: relative;
-			margin: 0 auto;
-			padding: 30px;
-			max-width: 1320px;
-			width: 100%;
-		}
-
-		.above-fold-grid__middle-column {
-			grid-column: span 8;
-			position: relative;
-		}
-
 		.above-fold-grid__middle-column::before {
 			background-color: var(--articles-br);
 			content: '';
@@ -327,10 +393,28 @@
 			top: 0;
 			width: 1px;
 		}
+	}
+	@media (min-width: 1280px) {
+		.above-fold-grid {
+			display: grid;
+			gap: 40px;
+			grid-template-columns: repeat(16, 1fr);
+			overflow: hidden;
+			position: relative;
+			margin: 0 auto;
+			padding: 30px;
+			max-width: 1600px;
+			width: 100%;
+		}
+
+		.above-fold-grid__middle-column {
+			grid-column: span 8;
+			position: relative;
+		}
 
 		.above-fold-grid__right-column {
 			grid-column: 13/-1;
-			border-top: 1px solid var(--articles-br);
+			border-top: unset;
 		}
 		.above-fold-grid__right-column ul {
 			display: flex;
@@ -339,29 +423,24 @@
 		.above-fold-grid__left-column {
 			display: flex;
 			flex-direction: column;
-			gap: 40px;
+			gap: 0;
 			grid-column: span 4;
 			position: relative;
-			border-top: 1px solid var(--articles-br);
 			overflow: hidden;
 		}
 		.above-fold-grid__right-column .article-list {
 			border: none;
 		}
+		.above-fold-grid__right-column {
+			border-bottom: unset;
+		}
 		.above-fold-grid__right-column ul li:nth-child(2)::before,
 		.above-fold-grid__right-column ul li:nth-child(2)::after {
 			display: none;
 		}
-		.article-list__item--small:not(:last-child),
-		.article-list__item--large:not(:last-child) {
-			border-bottom: 1px solid var(--articles-br);
-		}
-		/** Small article cards */
-		.article-list__item--small .article-list__item-card {
-			display: flex;
-			align-items: start;
-			justify-content: center;
-			padding: 15px 0;
+
+		.above-fold-grid__right-column ul li .article-list__item-card h2 {
+			font-size: 16px;
 		}
 
 		.article-list__item--small .article-list__item-col {
@@ -384,7 +463,7 @@
 			justify-content: center;
 		}
 		.featured-post {
-			background: #f7f7f7;
+			background: var(--featured-article-bg);
 			padding: 15px;
 			border: 1px solid;
 		}
