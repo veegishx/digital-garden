@@ -43,6 +43,7 @@
 	header > h1 {
 		font-size: var(--font-size-4);
 		text-wrap: wrap;
+		margin: 0px auto;
 	}
 
 	@media (min-width: 768px) {
