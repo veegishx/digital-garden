@@ -1,4 +1,5 @@
 ---
+author: Veegish Ramdani
 title: Handling TypeError URL is not a constructor when invoking window.navigator in NextJS
 description: A familiar looking bug which can at times prove hard to debug. This article looks at how to handle TypeError URL is not a constructor when using a library which is using browser objects like window.navigator
 date: '2024-01-29'
@@ -8,6 +9,8 @@ categories:
   - SSR
   - Lazy Loading
   - WebRTC
+
+featured: true
 published: true
 ---
 

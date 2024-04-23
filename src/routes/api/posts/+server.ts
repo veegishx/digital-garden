@@ -1,8 +1,19 @@
-import type { Post } from '$lib/types';
+import type { Post, HomePagePosts } from '$lib/types';
 import { json } from '@sveltejs/kit';
 
 async function getPosts() {
-	let posts: Post[] = [];
+	let homepageResponse: HomePagePosts = {
+		posts: [],
+		pickOfTheDay: {
+			author: '',
+			title: '',
+			slug: '',
+			description: '',
+			date: '',
+			categories: [],
+			published: false
+		}
+	};
 
 	const paths = import.meta.glob('/src/posts/*.md', {
 		eager: true
@@ -14,15 +25,30 @@ async function getPosts() {
 		if (file && typeof file === 'object' && 'metadata' in file && slug) {
 			const metadata = file.metadata as Omit<Post, 'slug'>;
 			const post = { ...metadata, slug } satisfies Post;
-			post.published && posts.push(post);
+			post.published && homepageResponse.posts.push(post);
 		}
 	}
 
-	posts = posts.sort(
+	homepageResponse.posts = homepageResponse.posts.sort(
 		(first, second) => new Date(second.date).getTime() - new Date(first.date).getTime()
 	);
 
-	return posts;
+	// Get the lastest featured post
+	homepageResponse.posts.some((post) =>
+		post.featured
+			? (homepageResponse.pickOfTheDay = post)
+			: (homepageResponse.pickOfTheDay = {
+					author: '',
+					title: '',
+					slug: '',
+					description: '',
+					date: '',
+					categories: [],
+					published: false
+				})
+	);
+
+	return homepageResponse;
 }
 
 export async function GET() {
