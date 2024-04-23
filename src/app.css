@@ -178,6 +178,9 @@ text-wrap .surface-2 {
 	background-color: var(--surface-4);
 	color: var(--text-1);
 }
+.article-body {
+	padding: 2px;
+}
 
 .article-body :is(h2, h3, h4, h5, h6) {
 	margin-top: var(--size-8);
