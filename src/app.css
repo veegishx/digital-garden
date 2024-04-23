@@ -179,7 +179,7 @@ text-wrap .surface-2 {
 	color: var(--text-1);
 }
 .article-body {
-	padding: 2px;
+	padding: 12px;
 }
 
 .article-body :is(h2, h3, h4, h5, h6) {
