@@ -10,14 +10,33 @@
 	export const rightColumnData = data.homePagePosts.posts.filter((post) =>
 		post.categories.includes('GDPR')
 	);
+
+	export const generateLayout = () => {
+		if (leftColumnData?.length < 1 && rightColumnData?.length < 1) {
+			return 'full-width-grid';
+		}
+
+		if (leftColumnData?.length > 0 && rightColumnData?.length < 1) {
+			return 'left-quater-grid';
+		}
+
+		if (leftColumnData?.length < 1 && rightColumnData?.length > 0) {
+			return 'right-quater-grid';
+		}
+	}
 </script>
 
 <svelte:head>
 	<title>{config.title}</title>
 </svelte:head>
 
+<div class="archive-notice gradient-border">
+	<p>All my previous blog posts have been archived <a href="https://archive.veegish.com">here</a> for now</p>
+</div>
+
 <!-- Pick of the day: Display latest featured article -->
-<section class="above-fold-grid">
+<section class={`above-fold-grid ${ generateLayout()}`}>
+	{#if leftColumnData?.length > 0}
 	<div class="above-fold-grid__left-column">
 		<h2 class="column-label">Essays</h2>
 		<ul class="article-list">
@@ -25,7 +44,9 @@
 				<li class="article-list__item--large">
 					<article class="article-list__item-card">
 						<div class="article-list__item-col">
+							{#if post.thumbnail}
 							<img src={post.thumbnail} alt={post.title} />
+							{/if}
 							<h2>{post.title}</h2>
 							<span class="article-list__item-author">{post.author}</span>
 						</div>
@@ -34,6 +55,7 @@
 			{/each}
 		</ul>
 	</div>
+	{/if}
 	<div class="above-fold-grid__middle-column featured-post">
 		{#if data.homePagePosts.pickOfTheDay}
 			<a href={data.homePagePosts.pickOfTheDay.slug}>
@@ -44,11 +66,13 @@
 							>{data.homePagePosts.pickOfTheDay.categories[0]}</span
 						>
 					</div>
+					{#if data.homePagePosts.pickOfTheDay.thumbnail}
 					<img
 						src={data.homePagePosts.pickOfTheDay.thumbnail}
 						alt={data.homePagePosts.pickOfTheDay?.title}
 						class="featured-post__thumbnail"
 					/>
+					{/if}
 					<div class="featured-post__meta">
 						<!-- <p class="featured-post__date">{formatDate(post.date)}</p> -->
 						<h2 class="featured-post__title">{data.homePagePosts.pickOfTheDay.title}</h2>
@@ -67,6 +91,7 @@
 			</a>
 		{/if}
 	</div>
+	{#if rightColumnData?.length > 0}
 	<div class="above-fold-grid__right-column">
 		<h2 class="column-label">The Debug Log</h2>
 		<ul class="article-list">
@@ -77,12 +102,15 @@
 							<h2>{post.title}</h2>
 							<span class="article-list__item-author">{post.author}</span>
 						</div>
-						<img src={post.thumbnail} alt={post.title} />
+						{#if post.thumbnail}
+							<img src={post.thumbnail} alt={post.title} />
+							{/if}
 					</article>
 				</li>
 			{/each}
 		</ul>
 	</div>
+	{/if}
 </section>
 
 <section class="latest-posts">
@@ -136,11 +164,76 @@
 </section>
 
 <style>
+	.archive-notice {
+		width: fit-content;
+    text-align: center;
+    background: var(--background);
+    margin: 0px auto;
+    padding: 6px 20px;
+    border-radius: 50px;
+		box-shadow: 0 0 0 1px rgba(0,0,0,.03), 0 2px 4px rgba(0,0,0,.05), 0 12px 24px rgba(0,0,0,.05);
+	}
+	.archive-notice > p > a {
+		color: rgb(0, 119, 255);
+	}
+	.gradient-border {
+  --borderWidth: 2px;
+  position: relative;
+  border-radius: var(--borderWidth);
+}
+.gradient-border:after {
+  content: '';
+  position: absolute;
+  top: calc(-1 * var(--borderWidth));
+  left: calc(-1 * var(--borderWidth));
+  height: calc(100% + var(--borderWidth) * 2);
+  width: calc(100% + var(--borderWidth) * 2);
+  background: linear-gradient(60deg, #f79533, #f37055, #ef4e7b, #a166ab, #5073b8, #1098ad, #07b39b, #6fba82);
+  border-radius: calc(2 * var(--borderWidth));
+  z-index: -1;
+  animation: animatedgradient 3s ease alternate infinite;
+  background-size: 300% 300%;
+}
+
+
+@keyframes animatedgradient {
+	0% {
+		background-position: 0% 50%;
+	}
+	50% {
+		background-position: 100% 50%;
+	}
+	100% {
+		background-position: 0% 50%;
+	}
+}
+
+
+
 	.featured-post h2 {
 		font-size: 55px;
 	}
 	.above-fold-grid {
 		display: grid;
+	}
+	.above-fold-grid.full-width-grid {
+		grid-template-columns: repeat(8, 1fr)
+	}
+	.above-fold-grid.left-quater-grid {
+		grid-template-columns: repeat(12, 1fr);
+	}
+	.above-fold-grid.right-quater-grid {
+		grid-template-columns: repeat(8, 1fr);
+	}
+	.above-fold-grid.full-width-grid > .above-fold-grid__middle-column::before,
+	.above-fold-grid.full-width-grid > .above-fold-grid__middle-column::after {
+		display: none;
+	}
+	.above-fold-grid.right-quater-grid > .above-fold-grid__middle-column::before {
+		display: none;
+	}
+	.above-fold-grid.left-quater-grid > .above-fold-grid__middle-column::after {
+		display: none;
 	}
 	.above-fold-grid__left-column {
 		display: flex;

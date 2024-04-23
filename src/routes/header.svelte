@@ -11,6 +11,9 @@
 
 	<ul class="links">
 		<li>
+			<a href="https://archive.veegish.com/">Archive</a>
+		</li>
+		<li>
 			<a href="/whoami">Whoami</a>
 		</li>
 		<li>
