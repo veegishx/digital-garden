@@ -12,24 +12,30 @@
 
 <article class="markdown-content">
 	<header>
-		<p>Initially published on {formatDate(data.meta.date)}</p>
+		<p class="markdown-content__meta-date">Initially published on {formatDate(data.meta.date)}</p>
 		<h1>{data.meta.title}</h1>
 	</header>
 
-	<div class="tags">
-		{#each data.meta.categories as category}
-			<span class="surface-4">&num; {category}</span>
-		{/each}
+	<div class="article-thumbnail">
+		<img src={data.meta.thumbnail} alt={data.meta.title} />
 	</div>
 
 	<div class="article-body">
 		<svelte:component this={data.content} />
+	</div>
+
+	<div class="tags">
+		{#each data.meta.categories as category}
+			<span class="tag">{category}</span>
+		{/each}
 	</div>
 </article>
 
 <style>
 	header {
 		text-align: center;
+		padding: 10px;
+		margin-bottom: 20px;
 	}
 	header > p {
 		margin-inline: auto;
@@ -61,13 +67,17 @@
 		display: flex;
 		flex-wrap: wrap;
 		justify-content: center;
-		gap: var(--size-3);
+		gap: var(--size-1);
 		margin-top: var(--size-7);
 	}
 
 	.tags > * {
-		padding: var(--size-2) var(--size-3);
-		border-radius: var(--radius-round);
+		text-transform: uppercase;
+		font-size: 14px;
+		font-family: var(--font-mono);
+		padding: 6px 8px;
+		color: var(--indigo-10);
+		background: var(--tag-bg);
 	}
 
 	@media (min-width: 768px) {
@@ -79,5 +89,13 @@
 			text-align: center;
 			margin-inline: auto;
 		}
+	}
+
+	.markdown-content {
+		max-width: 800px;
+		width: 100%;
+	}
+	.markdown-content__meta-date {
+		font-size: 14px;
 	}
 </style>

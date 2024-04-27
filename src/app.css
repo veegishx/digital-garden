@@ -107,7 +107,7 @@ html {
 	--border: var(--border-light);
 	--code-inline-fg: var(--red-8);
 	--code-inline-bg: var(--gray-1);
-	--featured-article-bg: wheat;
+	--featured-article-bg: white;
 	--featured-tag-bg: black;
 	--featured-tag-fg: white;
 	--articles-br: rgb(231, 231, 231);
@@ -125,8 +125,14 @@ html {
 	background-attachment: fixed;
 }
 
-img {
-	border-radius: 4px;
+:where(h1, h2, h3, h4, h5, h6) {
+	max-inline-size: unset;
+}
+
+@media (min-width: 768px) {
+	img {
+		border-radius: 4px;
+	}
 }
 
 p {
@@ -148,6 +154,15 @@ p > code {
 	text-wrap: balance;
 	background: var(--code-inline-bg);
 	color: var(--code-inline-fg);
+}
+
+p > :where(a[href]):where(:visited) {
+	color: var(--indigo-8);
+}
+
+p > :where(a[href]):hover {
+	color: var(--red-6);
+	text-decoration-color: var(--red-6);
 }
 
 pre > code {
