@@ -8,10 +8,12 @@ categories:
   - Error Handling
   - SSR
   - Lazy Loading
+  - Debug Log
   - WebRTC
 
 featured: true
 published: true
+thumbnail: images/nextjs-typeerror-not-constructor/nextjs-typeerror-not-constructor.png
 ---
 
 ## Table of Contents
