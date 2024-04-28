@@ -101,7 +101,7 @@
 
 <div class="archive-notice gradient-border">
 	<p>
-		All previous blog posts have been archived <a href="https://archive.veegish.com">here</a> for now
+		All previous <a href="https://archive.veegish.com">blog posts have been archived </a> for now
 	</p>
 </div>
 
@@ -112,8 +112,8 @@
 			<h2 class="column-label">Privacy</h2>
 			<ul class="article-list">
 				{#each leftColumnData.slice(0, 3) as post}
-					<a href={post.slug}>
-						<li class="article-list__item--large">
+					<li class="article-list__item--large">
+						<a href={post.slug}>
 							<article class="article-list__item-card">
 								<div class="article-list__item-col">
 									{#if post.thumbnail}
@@ -123,8 +123,8 @@
 									<span class="article-list__item-author">{post.author}</span>
 								</div>
 							</article>
-						</li>
-					</a>
+						</a>
+					</li>
 				{/each}
 			</ul>
 		</div>
@@ -169,8 +169,8 @@
 			<h2 class="column-label">The Debug Log</h2>
 			<ul class="article-list">
 				{#each rightColumnData.slice(0, 6) as post}
-					<a href={post.slug}>
-						<li class="article-list__item--small">
+					<li class="article-list__item--small">
+						<a href={post.slug}>
 							<article class="article-list__item-card">
 								<div class="article-list__item-col">
 									<h2>{post.title}</h2>
@@ -180,8 +180,8 @@
 									<img src={post.thumbnail} alt={post.title} />
 								{/if}
 							</article>
-						</li>
-					</a>
+						</a>
+					</li>
 				{/each}
 			</ul>
 		</div>

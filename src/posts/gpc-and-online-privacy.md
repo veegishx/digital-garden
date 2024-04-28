@@ -12,7 +12,7 @@ categories:
 
 featured: true
 published: true
-thumbnail: https://images.unsplash.com/photo-1533895328642-8035bacd565a?q=80&w=2670&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D
+thumbnail: images/gpc-online-privacy/gpc-thumbnail.jpg
 ---
 
 If you are an American, you are probably aware of the California Consumer Protection Act (CCPA), a data privacy regulation which was enacted back in January 2020 to help protect the privacy of consumers by giving them a greater control over the sale of their personal data. This was a significant step concerning the protection of consumer privacy in California, and one of the most important section of this legislation is the the right to opt out of the sale of personal information.
