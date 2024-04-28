@@ -13,7 +13,7 @@ categories:
 
 featured: true
 published: true
-thumbnail: images/nextjs-typeerror-not-constructor/nextjs-typeerror-not-constructor.png
+thumbnail: images/nextjs-typeerror-not-constructor/nextjs-typeerror-not-constructor.webp
 ---
 
 ## Table of Contents
