@@ -166,4 +166,10 @@
 	.markdown-content__meta-date {
 		font-size: 14px;
 	}
+
+	.article-thumbnail {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+	}
 </style>

@@ -200,7 +200,13 @@
 				>
 					<!-- <p class="date">{formatDate(post.date)}</p> -->
 					{#if post.thumbnail}
-						<img class="latest-posts__article-thumbnail" src={post.thumbnail} alt={post?.title} />
+						<img
+							class="latest-posts__article-thumbnail"
+							src={post.thumbnail}
+							alt={post?.title}
+							width="720"
+							height="500"
+						/>
 						<div class="latest-posts__article-meta">
 							<h2 class="latest-posts__article-title">{post.title}</h2>
 							<p class="latest-posts__article-description">
@@ -258,6 +264,14 @@
 		--borderWidth: 2px;
 		position: relative;
 		border-radius: var(--borderWidth);
+	}
+	.gradient-border > p {
+		font-size: 15px;
+	}
+	@media (min-width: 768px) {
+		.gradient-border > p {
+			font-size: 16px;
+		}
 	}
 	.gradient-border:after {
 		content: '';
