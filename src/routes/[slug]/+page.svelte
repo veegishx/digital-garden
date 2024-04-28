@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { formatDate } from '$lib/utils.js';
-	import { MetaTags } from 'svelte-meta-tags';
+	import { MetaTags, JsonLd } from 'svelte-meta-tags';
 	import * as config from '$lib/config.js';
 	export let data;
 </script>
@@ -49,6 +49,32 @@
 	}}
 	facebook={{
 		appId: '1234567890'
+	}}
+/>
+
+<JsonLd
+	schema={{
+		'@type': 'Article',
+		mainEntityOfPage: {
+			'@type': 'WebPage',
+			'@id': data.post_slug
+		},
+		headline: data.meta.title,
+		image: [data.meta.thumbnail],
+		datePublished: data.meta.date,
+		dateModified: data.meta.date,
+		author: {
+			'@type': 'Person',
+			name: config.site.author
+		},
+		publisher: {
+			'@type': 'Organization',
+			name: config.site.author,
+			logo: {
+				'@type': 'ImageObject',
+				url: `${config.site.url}/${config.site.thumbnail}`
+			}
+		}
 	}}
 />
 

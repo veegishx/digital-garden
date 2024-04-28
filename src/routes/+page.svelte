@@ -2,7 +2,7 @@
 	import { formatDate } from '$lib/utils.js';
 	import * as config from '$lib/config.js';
 	import { IconStarFilled } from '@tabler/icons-svelte';
-	import { MetaTags } from 'svelte-meta-tags';
+	import { JsonLd, MetaTags } from 'svelte-meta-tags';
 	export let data;
 
 	export const leftColumnData = data.homePagePosts.posts.filter((post) =>
@@ -70,6 +70,32 @@
 	}}
 	facebook={{
 		appId: '1234567890'
+	}}
+/>
+
+<JsonLd
+	schema={{
+		'@type': 'Article',
+		mainEntityOfPage: {
+			'@type': 'WebPage',
+			'@id': config.site.url
+		},
+		headline: config.site.title,
+		image: `${config.site.url}/${config.site.thumbnail}`,
+		datePublished: new Date().toDateString(),
+		dateModified: new Date().toDateString(),
+		author: {
+			'@type': 'Person',
+			name: config.site.author
+		},
+		publisher: {
+			'@type': 'Organization',
+			name: config.site.author,
+			logo: {
+				'@type': 'ImageObject',
+				url: `${config.site.url}/${config.site.thumbnail}`
+			}
+		}
 	}}
 />
 
