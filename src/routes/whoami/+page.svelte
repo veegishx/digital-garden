@@ -51,6 +51,7 @@
 		justify-content: center;
 		align-items: center;
 		text-align: center;
+		padding: 10px;
 	}
 
 	.whoami > pre {
