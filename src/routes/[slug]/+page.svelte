@@ -5,55 +5,52 @@
 	export let data;
 </script>
 
-<svelte:head>
-	<title>{data.meta.title}</title>
-	<MetaTags
-		title={data.meta.title}
-		titleTemplate={`%s | ${config.site.title}`}
-		description={data.meta.description}
-		canonical={data.post_slug}
-		openGraph={{
-			type: 'article',
-			article: {
-				publishedTime: data.meta.date,
-				modifiedTime: data.meta.date,
-				section: data.meta.categories[0],
-				authors: [data.meta.author],
-				tags: data.meta.categories
+<MetaTags
+	title={data.meta.title}
+	titleTemplate={`%s | ${config.site.title}`}
+	description={data.meta.description}
+	canonical={data.post_slug}
+	openGraph={{
+		type: 'article',
+		article: {
+			publishedTime: data.meta.date,
+			modifiedTime: data.meta.date,
+			section: data.meta.categories[0],
+			authors: [data.meta.author],
+			tags: data.meta.categories
+		},
+		url: data.post_slug,
+		title: data.meta.title,
+		description: data.meta.description,
+		images: [
+			{
+				url: data.meta.thumbnail,
+				width: 800,
+				height: 600,
+				alt: data.meta.title
 			},
-			url: data.post_slug,
-			title: data.meta.title,
-			description: data.meta.description,
-			images: [
-				{
-					url: data.meta.thumbnail,
-					width: 800,
-					height: 600,
-					alt: data.meta.title
-				},
-				{
-					url: data.meta.thumbnail,
-					width: 900,
-					height: 800,
-					alt: data.meta.title
-				},
-				{ url: data.meta.thumbnail },
-				{ url: data.meta.thumbnail }
-			],
-			siteName: config.site.title
-		}}
-		twitter={{
-			cardType: 'summary_large_image',
-			title: data.meta.title,
-			description: data.meta.description,
-			image: data.meta.thumbnail,
-			imageAlt: data.meta.title
-		}}
-		facebook={{
-			appId: '1234567890'
-		}}
-	/>
-</svelte:head>
+			{
+				url: data.meta.thumbnail,
+				width: 900,
+				height: 800,
+				alt: data.meta.title
+			},
+			{ url: data.meta.thumbnail },
+			{ url: data.meta.thumbnail }
+		],
+		siteName: config.site.title
+	}}
+	twitter={{
+		cardType: 'summary_large_image',
+		title: data.meta.title,
+		description: data.meta.description,
+		image: data.meta.thumbnail,
+		imageAlt: data.meta.title
+	}}
+	facebook={{
+		appId: '1234567890'
+	}}
+/>
 
 <article class="markdown-content">
 	<header>

@@ -27,53 +27,51 @@
 	};
 </script>
 
-<svelte:head>
-	<MetaTags
-		title={config.site.title}
-		description={config.site.description}
-		canonical={config.site.url}
-		openGraph={{
-			type: 'article',
-			article: {
-				publishedTime: new Date().toDateString(),
-				modifiedTime: new Date().toDateString(),
-				section: config.site.category,
-				authors: [config.site.author],
-				tags: config.site.keywords
+<MetaTags
+	title={config.site.title}
+	description={config.site.description}
+	canonical={config.site.url}
+	openGraph={{
+		type: 'article',
+		article: {
+			publishedTime: new Date().toDateString(),
+			modifiedTime: new Date().toDateString(),
+			section: config.site.category,
+			authors: [config.site.author],
+			tags: config.site.keywords
+		},
+		url: config.site.url,
+		title: config.site.title,
+		description: config.site.description,
+		images: [
+			{
+				url: `${config.site.url}/${config.site.thumbnail}`,
+				width: 800,
+				height: 600,
+				alt: config.site.title
 			},
-			url: config.site.url,
-			title: config.site.title,
-			description: config.site.description,
-			images: [
-				{
-					url: `${config.site.url}/${config.site.thumbnail}`,
-					width: 800,
-					height: 600,
-					alt: config.site.title
-				},
-				{
-					url: `${config.site.url}/${config.site.thumbnail}`,
-					width: 900,
-					height: 800,
-					alt: config.site.title
-				},
-				{ url: `${config.site.url}/${config.site.thumbnail}` },
-				{ url: `${config.site.url}/${config.site.thumbnail}` }
-			],
-			siteName: config.site.title
-		}}
-		twitter={{
-			cardType: 'summary_large_image',
-			title: config.site.title,
-			description: config.site.description,
-			image: `${config.site.url}/${config.site.thumbnail}`,
-			imageAlt: config.site.title
-		}}
-		facebook={{
-			appId: '1234567890'
-		}}
-	/>
-</svelte:head>
+			{
+				url: `${config.site.url}/${config.site.thumbnail}`,
+				width: 900,
+				height: 800,
+				alt: config.site.title
+			},
+			{ url: `${config.site.url}/${config.site.thumbnail}` },
+			{ url: `${config.site.url}/${config.site.thumbnail}` }
+		],
+		siteName: config.site.title
+	}}
+	twitter={{
+		cardType: 'summary_large_image',
+		title: config.site.title,
+		description: config.site.description,
+		image: `${config.site.url}/${config.site.thumbnail}`,
+		imageAlt: config.site.title
+	}}
+	facebook={{
+		appId: '1234567890'
+	}}
+/>
 
 <div class="archive-notice gradient-border">
 	<p>
