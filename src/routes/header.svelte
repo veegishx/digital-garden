@@ -5,8 +5,8 @@
 
 <nav>
 	<a href="/" class="title">
-		<strong>{config.title}</strong>
-		{#if config.maintenanceMode}
+		<strong>{config.site.title}</strong>
+		{#if config.site.maintenanceMode}
 			<span class="disclaimer">Work in Progress</span>
 		{/if}
 	</a>

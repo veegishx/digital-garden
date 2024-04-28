@@ -2,6 +2,7 @@
 	import { formatDate } from '$lib/utils.js';
 	import * as config from '$lib/config.js';
 	import { IconStarFilled } from '@tabler/icons-svelte';
+	import { MetaTags } from 'svelte-meta-tags';
 	export let data;
 
 	export const leftColumnData = data.homePagePosts.posts.filter((post) =>
@@ -27,7 +28,52 @@
 </script>
 
 <svelte:head>
-	<title>{config.title}</title>
+	<MetaTags
+		title={config.site.title}
+		titleTemplate={`%s | ${config.site.title}`}
+		description={config.site.description}
+		canonical={config.site.url}
+		openGraph={{
+			type: 'article',
+			article: {
+				publishedTime: new Date().toDateString(),
+				modifiedTime: new Date().toDateString(),
+				section: config.site.category,
+				authors: [config.site.author],
+				tags: config.site.keywords
+			},
+			url: config.site.url,
+			title: config.site.title,
+			description: config.site.description,
+			images: [
+				{
+					url: `${config.site.url}/${config.site.thumbnail}`,
+					width: 800,
+					height: 600,
+					alt: config.site.title
+				},
+				{
+					url: `${config.site.url}/${config.site.thumbnail}`,
+					width: 900,
+					height: 800,
+					alt: config.site.title
+				},
+				{ url: `${config.site.url}/${config.site.thumbnail}` },
+				{ url: `${config.site.url}/${config.site.thumbnail}` }
+			],
+			siteName: config.site.title
+		}}
+		twitter={{
+			cardType: 'summary_large_image',
+			title: config.site.title,
+			description: config.site.description,
+			image: `${config.site.url}/${config.site.thumbnail}`,
+			imageAlt: config.site.title
+		}}
+		facebook={{
+			appId: '1234567890'
+		}}
+	/>
 </svelte:head>
 
 <div class="archive-notice gradient-border">

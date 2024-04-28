@@ -3,7 +3,7 @@
 </script>
 
 <footer>
-	<span>{config.title} &copy {new Date().getFullYear()}</span>
+	<span>{config.site.title} &copy {new Date().getFullYear()}</span>
 	<span>🚀 Svelte + Open Props</span>
 </footer>
 
