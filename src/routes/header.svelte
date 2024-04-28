@@ -6,7 +6,9 @@
 <nav>
 	<a href="/" class="title">
 		<strong>{config.title}</strong>
-		<span class="disclaimer">Work in Progress</span>
+		{#if config.maintenanceMode}
+			<span class="disclaimer">Work in Progress</span>
+		{/if}
 	</a>
 
 	<ul class="links">
@@ -31,6 +33,7 @@
 	nav {
 		text-align: center;
 		padding-block: var(--size-7);
+		align-items: center;
 	}
 
 	.links {
@@ -63,7 +66,7 @@
 		position: relative;
 	}
 
-	.title:after {
+	/* .title:after {
 		z-index: -1;
 		position: absolute;
 		top: -50px;
@@ -77,7 +80,7 @@
 		border-color: transparent rgb(104, 2, 2) transparent transparent;
 		display: inline-block;
 		vertical-align: middle;
-	}
+	} */
 
 	@media (min-width: 768px) {
 		nav {
