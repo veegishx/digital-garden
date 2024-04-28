@@ -30,7 +30,6 @@
 <svelte:head>
 	<MetaTags
 		title={config.site.title}
-		titleTemplate={`%s | ${config.site.title}`}
 		description={config.site.description}
 		canonical={config.site.url}
 		openGraph={{
