@@ -258,3 +258,7 @@ blockquote {
 	justify-content: center;
 	padding: 12px;
 }
+
+.image-caption img {
+	margin: 0px auto;
+}

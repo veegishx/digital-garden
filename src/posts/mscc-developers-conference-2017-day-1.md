@@ -1,7 +1,7 @@
 ---
 author: Veegish Ramdani
 title: MSCC Developers Conference 2017 - Day 1
-description: A recap of the third edition of the Developers Conference Mauritius
+description: A recap of the third edition of the Developers Conference Mauritius - Day 1
 date: '2017-03-30'
 categories:
   - Conference
@@ -15,7 +15,7 @@ thumbnail: images/mscc-developers-conference-2017-day-1/thumbnail.png
 ---
 
 <script>
-	import Image from 'svimg/Image.svelte';
+  import Image from 'svimg/Image.svelte';
   import Quote from './quote.svelte';
   import ImageCaption from './image-caption.svelte';
 </script>
