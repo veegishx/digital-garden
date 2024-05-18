@@ -31,8 +31,6 @@ Akasha Rojee presenting 2D breakout game using pure JavaScript.
 
 Throughout the demo, different basic aspects of game development were explained such as collision detection, computer graphics coordinates(with a downward facing y axis – [read more here](https://gamedev.stackexchange.com/questions/83570/why-is-the-origin-in-computer-graphics-coordinates-at-the-top-left)), score tracking system, and game over conditions. To demonstrate how using frameworks can speed up a workflow the game was [recreated using Phaser](https://developer.mozilla.org/en-US/docs/Games/Tutorials/2D_breakout_game_Phaser). An advantage of a framework like Phaser over vanilla js is that you don’t need to draw objects using canvas. Instead you can just draw your game assets and directly import them into your game project. Moreover Phaser has a preloader library for preloading assets like sprites, images and audio.
 
-phaser framework
-
 ## 10:30 – Game Development with Unreal Engine 4
 
 <YouTube youTubeId="XTgueDFaN6Y" />
@@ -54,7 +52,6 @@ Back to some seriousness, Sundeep Ramgoolam brought up the [Drunning Kruger effe
 
 <ImageCaption caption="Photo credits: https://twitter.com/ianbremmer">
   <img class="inline-basic-image" src="http://financialcryptography.com/images/the-path-all-knowledge.jpg" />
- 
 </ImageCaption>
 
 Quote from a panelist:
