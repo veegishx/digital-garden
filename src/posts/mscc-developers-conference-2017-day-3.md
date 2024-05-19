@@ -51,7 +51,7 @@ One really fun topic was about tabs vs spaces…yep
 Back to some seriousness, Sundeep Ramgoolam brought up the [Drunning Kruger effect](https://en.wikipedia.org/wiki/Dunning%E2%80%93Kruger_effect) which basically refers to an illusion which makes people perceive their abilities more superior than they actually are, thus making them think they are experts at what they are doing. The opposite applies to those who are more experienced.
 
 <ImageCaption caption="Photo credits: https://twitter.com/ianbremmer">
-  <img loading="lazy" class="inline-basic-image" src="http://financialcryptography.com/images/the-path-all-knowledge.jpg" />
+  <img loading="lazy" class="inline-basic-image" src="http://financialcryptography.com/images/the-path-all-knowledge.jpg" alt="drunning kruger effect />
 </ImageCaption>
 
 Quote from a panelist:
