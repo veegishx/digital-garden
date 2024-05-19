@@ -1,7 +1,7 @@
 <script lang="ts">
 	import { formatDate } from '$lib/utils.js';
 	import * as config from '$lib/config.js';
-	import { IconStarFilled } from '@tabler/icons-svelte';
+	import { Star } from 'lucide-svelte';
 	import { JsonLd, MetaTags } from 'svelte-meta-tags';
 	export let data;
 
@@ -134,7 +134,7 @@
 			<a href={data.homePagePosts.pickOfTheDay.slug}>
 				<div class="featured-post__cover">
 					<div class="featured-post__header">
-						<span class="featured-post__icon"><IconStarFilled size={15} /> Featured</span>
+						<span class="featured-post__icon"><Star size={15} /> Featured</span>
 						<span class="featured-post__category"
 							>{data.homePagePosts.pickOfTheDay.categories[0]}</span
 						>
