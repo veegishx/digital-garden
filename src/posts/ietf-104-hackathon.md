@@ -27,6 +27,7 @@ As is tradition, every year the cyberstorm.mu team takes part in the IETF hackat
 <ImageCaption>
   <Image class="inline-basic-image" src="images/ietf-104-hackathon/ietf-104-hackathon-photo-1.jpg" />
 </ImageCaption>
+
 This year, I teamed up with Yashveer to work on implementing the latest draft for A Lower Effort Per-Hop Behavior(draft: [https://tools.ietf.org/html/draft-ietf-tsvwg-le-phb-10](https://tools.ietf.org/html/draft-ietf-tsvwg-le-phb-10)) in OpenSSH.
 
 Lower effort(LE) is one of the many codepoints which can be specified in the differentiated services/DiffServ field(formerly known as ToS) of an IP packet. DiffServ is a technique which is used to enforce Quality of Service(QoS) in a network by providing packet classification methods to identify latency-critical traffic such as VoIP and other real-time streaming media applications. To implement packet classification, DiffServ provides a defined list of 6 bits codes(Differentiated Services Code Points - DSCP) which can be applied to a network traffic.
