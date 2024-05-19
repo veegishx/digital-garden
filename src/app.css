@@ -116,6 +116,7 @@ html {
 html,
 body {
 	height: 100%;
+	word-wrap: break-word;
 }
 
 html {
