@@ -9,6 +9,7 @@ categories:
   - Dotnet
   - Coding
   - Linux
+  - Debug Log
 
 featured: true
 published: true

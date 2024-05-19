@@ -9,6 +9,7 @@ categories:
   - Hackathon
   - Open Source
   - http451
+  - Debug Log
 
 featured: true
 published: true
