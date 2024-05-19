@@ -257,6 +257,7 @@ blockquote {
 	align-items: center;
 	justify-content: center;
 	padding: 12px;
+	text-align: center;
 }
 
 .image-caption img {

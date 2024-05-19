@@ -4,5 +4,5 @@
 
 <figure class="image-caption">
 	<slot />
-	<figcaption>{caption}</figcaption>
+	<figcaption>{caption || ''}</figcaption>
 </figure>
