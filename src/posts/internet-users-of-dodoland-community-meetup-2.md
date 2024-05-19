@@ -27,7 +27,7 @@ Following the first community meetup organised last week by Internet users of do
 This time, Loganaden Velvindron talked a bit about github workflow and how it can be useful to manage university assignments especially when working in teams. He helped students properly set up their GitHub accounts starting with updating their profile page with relevant information that could help potential employers looking at their GitHub accounts.
 
 <ImageCaption caption="Logan explaining to students how having a Github account can boost their online presence as a developer">
-  <Image class="inline-basic-image" src="images/internet-users-of-dodoland-community-meetup-2/internet-users-of-dodoland-community-meetup-2-photo-1.jpg" />
+  <img alt="test" class="inline-basic-image" src="images/internet-users-of-dodoland-community-meetup-2/internet-users-of-dodoland-community-meetup-2-photo-1.jpg" />
 </ImageCaption>
 
 ## Securing GitHub accounts using SSH Keys
@@ -48,7 +48,7 @@ By default, the ssh keys generated are found in the `.ssh` directory. You can ch
 Once we generated our keys, Logan showed us how to use them with our GitHub accounts to add an extra layer of security. GitHub makes it pretty straight forward to add keys. You just need to copy your newly-generated **public key** and paste it into the textbox provided and give it a name.
 
 <ImageCaption caption="Setting up SSH authentication on Github">
-  <Image class="inline-basic-image" src="images/internet-users-of-dodoland-community-meetup-2/internet-users-of-dodoland-community-meetup-2-screenshot-1.png" />
+  <img alt="test" class="inline-basic-image" src="images/internet-users-of-dodoland-community-meetup-2/internet-users-of-dodoland-community-meetup-2-screenshot-1.png" />
 </ImageCaption>
 
 One way to copy the key is to output it to your terminal display using the `cat` command, like this: `cat ~/.ssh/id_rsa.pub` and copy it directly from there.
@@ -111,19 +111,19 @@ _To avoid locking yourself out, its better to do it in a new terminal window_
 
 Once the tunnel is working, you need to configure Firefox to use the proxy. Go to your Firefox preferences and open the Network Proxy settings. In the SOCKS Host, specify your port, then click ok.
 <ImageCaption caption="Configuring SOCKS Proxy in Mozilla Firefox">
-<Image class="inline-basic-image" src="images/internet-users-of-dodoland-community-meetup-2/internet-users-of-dodoland-community-meetup-2-screenshot-2.png" />
+<img alt="test" class="inline-basic-image" src="images/internet-users-of-dodoland-community-meetup-2/internet-users-of-dodoland-community-meetup-2-screenshot-2.png" />
 </ImageCaption>
 
 Now to test if your proxy is working, use an IP addres lookup service like [ipfingerprints](http://www.ipfingerprints.com/geolocation.php) or [whatismyip](https://www.whatismyip.com/).
 
 No Proxy
 <ImageCaption caption="A normal request without any proxy">
-<Image class="inline-basic-image" src="images/internet-users-of-dodoland-community-meetup-2/internet-users-of-dodoland-community-meetup-2-screenshot-3.png" />
+<img alt="test" class="inline-basic-image" src="images/internet-users-of-dodoland-community-meetup-2/internet-users-of-dodoland-community-meetup-2-screenshot-3.png" />
 </ImageCaption>
 
 Using SOCKS Proxy
 <ImageCaption caption="A request via SOCKS proxy">
-<Image class="inline-basic-image" src="images/internet-users-of-dodoland-community-meetup-2/internet-users-of-dodoland-community-meetup-2-screenshot-4.png" />
+<img alt="test" class="inline-basic-image" src="images/internet-users-of-dodoland-community-meetup-2/internet-users-of-dodoland-community-meetup-2-screenshot-4.png" />
 </ImageCaption>
 
 ## End of Meetup
@@ -138,13 +138,13 @@ GitHub integration via webhooks
 A great feature with platforms such as GitHub and Bitbucket is that they can be integrated into popular chat clients such as Slack or HipChat. If you are a student who happens to be a gamer(like me :p) as well, you have probably heard of Discord. Discord is a chat client tailored for gamers. One cool feature about Discord is that it supports webhooks. Webhooks are basically a way to deliver data to an external server when an action is performed. Discord support GitHub webhooks out of the box. So if you collaborate with teammates who happen to be gamers as well, you can easily use Discord to chat as well as collaborate on projects hosted on GitHub. Check out [this tutorial](https://support.discordapp.com/hc/en-us/articles/228383668-Intro-to-Webhooks) to get started.
 
 <ImageCaption caption="Github live updates on Discord via webhooks">
-  <Image class="inline-basic-image" src="images/internet-users-of-dodoland-community-meetup-2/internet-users-of-dodoland-community-meetup-2-screenshot-5.png" />
+  <img alt="test" class="inline-basic-image" src="images/internet-users-of-dodoland-community-meetup-2/internet-users-of-dodoland-community-meetup-2-screenshot-5.png" />
 </ImageCaption>
 
 <ImageCaption>
-  <Image class="inline-basic-image" src="images/internet-users-of-dodoland-community-meetup-2/internet-users-of-dodoland-community-meetup-2-screenshot-6.png" />
+  <img alt="test" class="inline-basic-image" src="images/internet-users-of-dodoland-community-meetup-2/internet-users-of-dodoland-community-meetup-2-screenshot-6.png" />
 </ImageCaption>
 
 <ImageCaption>
-  <Image class="inline-basic-image" src="images/internet-users-of-dodoland-community-meetup-2/internet-users-of-dodoland-community-meetup-2-screenshot-7.png" />
+  <img alt="test" class="inline-basic-image" src="images/internet-users-of-dodoland-community-meetup-2/internet-users-of-dodoland-community-meetup-2-screenshot-7.png" />
 </ImageCaption>
