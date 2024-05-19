@@ -201,6 +201,7 @@
 					<!-- <p class="date">{formatDate(post.date)}</p> -->
 					{#if post.thumbnail}
 						<img
+							loading="lazy"
 							class="latest-posts__article-thumbnail"
 							src={post.thumbnail}
 							alt={post?.title}
@@ -734,8 +735,8 @@
 			justify-content: center;
 		}
 		.article-list__item--large .article-list__item-card img {
-			min-width: 300px;
-			max-width: 300px;
+			min-width: 250px;
+			max-width: 250px;
 			min-height: 200px;
 			max-height: 200px;
 			min-height: 65px;

@@ -116,6 +116,7 @@ html {
 html,
 body {
 	height: 100%;
+	word-wrap: break-word;
 }
 
 html {
@@ -239,4 +240,27 @@ text-wrap .surface-2 {
 .embedded-image {
 	margin-top: var(--size-6);
 	margin-bottom: var(--size-6);
+}
+
+figure,
+blockquote {
+	display: block;
+	max-inline-size: unset;
+}
+.image-caption {
+	display: block;
+	margin-top: 20px;
+	margin-bottom: 20px;
+}
+.image-caption figcaption {
+	max-inline-size: unset;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	padding: 12px;
+	text-align: center;
+}
+
+.image-caption img {
+	margin: 0px auto;
 }
