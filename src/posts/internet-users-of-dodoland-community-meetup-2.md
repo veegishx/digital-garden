@@ -1,6 +1,6 @@
 ---
 author: Veegish Ramdani
-title: Internet users of dodoland community meetup 2
+title: 'Internet users of dodoland community meetup #2'
 description: Internet users of dodoland community meets up at the University of Mauritius to introduce students to Github & SSH
 date: '2017-11-25'
 categories:
@@ -17,7 +17,6 @@ thumbnail: images/internet-users-of-dodoland-community-meetup-2/thumbnail.jpg
 
 <script>
     import Image from 'svimg/Image.svelte';
-    import Quote from './quote.svelte';
     import ImageCaption from './image-caption.svelte';
 </script>
 
