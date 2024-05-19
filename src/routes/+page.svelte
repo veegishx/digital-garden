@@ -201,6 +201,7 @@
 					<!-- <p class="date">{formatDate(post.date)}</p> -->
 					{#if post.thumbnail}
 						<img
+							loading="lazy"
 							class="latest-posts__article-thumbnail"
 							src={post.thumbnail}
 							alt={post?.title}
