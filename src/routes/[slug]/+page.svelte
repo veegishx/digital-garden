@@ -126,11 +126,6 @@
 		}
 	}
 
-	h1 + p {
-		margin-top: var(--size-2);
-		color: var(--text-2);
-	}
-
 	.tags {
 		display: flex;
 		flex-wrap: wrap;
