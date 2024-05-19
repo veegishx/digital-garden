@@ -30,8 +30,8 @@ const config = {
 	extensions: ['.svelte', '.md'],
 	preprocess: [
 		imagePreprocessor({
-			inputDir: 'static',
-			outputDir: 'static/g',
+			inputDir: 'static/images',
+			outputDir: 'static/transformed',
 			webp: true,
 			avif: true
 		}),
