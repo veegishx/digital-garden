@@ -26,7 +26,9 @@
 		</li> -->
 	</ul>
 
-	<Toggle />
+	<div>
+		<Toggle />
+	</div>
 </nav>
 
 <style>
@@ -34,6 +36,16 @@
 		text-align: center;
 		padding-block: var(--size-7);
 		align-items: center;
+	}
+
+	nav > :nth-child(1) {
+		flex: 1;
+	}
+	nav > :nth-child(2) {
+		flex: 3;
+	}
+	nav > :nth-child(3) {
+		flex: 1;
 	}
 
 	.links {
@@ -85,7 +97,7 @@
 	@media (min-width: 768px) {
 		nav {
 			display: flex;
-			justify-content: space-around;
+			justify-content: space-evenly;
 		}
 
 		.disclaimer {
