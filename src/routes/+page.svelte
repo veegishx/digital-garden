@@ -502,6 +502,7 @@
 	}
 
 	.featured-post__category {
+		color: var(--featured-post-category-color);
 		width: fit-content;
 		border: 1px solid;
 		padding: 8px 12px;
