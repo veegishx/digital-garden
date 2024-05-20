@@ -17,7 +17,7 @@ thumbnail: images/setting-up-a-dotnet-development-environment-on-manjaro/thumbna
 ---
 
 <script>
-    import Image from 'svimg/Image.svelte';
+    
     import ImageCaption from './image-caption.svelte';
 </script>
 
@@ -41,7 +41,7 @@ dotnet --list-sdks && dotnet --list-runtimes
 ```
 
 <ImageCaption>
-  <img alt="test" class="inline-basic-image" src="images/setting-up-a-dotnet-development-environment-on-manjaro/setting-up-a-dotnet-development-environment-on-manjaro-screenshot-1.png" />
+  <enhanced:img class="inline-basic-image" src="/static/images/setting-up-a-dotnet-development-environment-on-manjaro/setting-up-a-dotnet-development-environment-on-manjaro-screenshot-1.png" />
 </ImageCaption>
 
 Once the packages are installed, check whether the dotnet executable is located at `/usr/bin/dotnet` by running `whereis dotnet`, otherwise some issues may arise.
@@ -73,5 +73,5 @@ dotnet run Program.cs
 If it outputs Hello World! without any errors then you are good to go!
 
 <ImageCaption>
-  <img alt="test" class="inline-basic-image" src="images/setting-up-a-dotnet-development-environment-on-manjaro/setting-up-a-dotnet-development-environment-on-manjaro-screenshot-2.png" />
+  <enhanced:img class="inline-basic-image" src="/static/images/setting-up-a-dotnet-development-environment-on-manjaro/setting-up-a-dotnet-development-environment-on-manjaro-screenshot-2.png" />
 </ImageCaption>

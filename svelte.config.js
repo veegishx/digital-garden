@@ -5,7 +5,6 @@ import shiki from 'shiki';
 import remarkUnwrapImages from 'remark-unwrap-images';
 import remarkToc from 'remark-toc';
 import rehypeSlug from 'rehype-slug';
-import { imagePreprocessor } from 'svimg';
 
 /** @type {import('mdsvex').MdsvexOptions} */
 const mdsvexOptions = {
@@ -28,16 +27,7 @@ const mdsvexOptions = {
 /** @type {import('@sveltejs/kit').Config} */
 const config = {
 	extensions: ['.svelte', '.md'],
-	preprocess: [
-		imagePreprocessor({
-			inputDir: 'static',
-			outputDir: 'static/g',
-			webp: true,
-			avif: true
-		}),
-		vitePreprocess(),
-		mdsvex(mdsvexOptions)
-	],
+	preprocess: [vitePreprocess(), mdsvex(mdsvexOptions)],
 
 	kit: {
 		// adapter-auto only supports some environments, see https://kit.svelte.dev/docs/adapter-auto for a list.
