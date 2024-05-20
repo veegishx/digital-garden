@@ -117,12 +117,13 @@ html,
 body {
 	height: 100%;
 	word-wrap: break-word;
+	background: var(--background);
 }
 
 html {
 	color: var(--text-1);
 	accent-color: var(--link);
-	background-image: var(--background);
+	background: var(--background);
 	background-attachment: fixed;
 }
 
