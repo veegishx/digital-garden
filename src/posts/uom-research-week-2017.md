@@ -15,7 +15,7 @@ thumbnail: images/uom-research-week-2017/thumbnail.jpg
 ---
 
 <script>
-  import Image from 'svimg/Image.svelte';
+  
   import ImageCaption from './image-caption.svelte';
 </script>
 
@@ -32,13 +32,13 @@ To end the keynote, Mr Moonegan spoke about research in the business context, ho
 ## Sessions
 
 <ImageCaption caption="An IoT based home automation system overview displayed outside">
-  <img loading="lazy" alt="An IoT based home automation system" class="inline-basic-image" src="images/uom-research-week-2017/uom-research-week-2017-showcase-1.jpg" />
+  <enhanced:img alt="An IoT based home automation system" class="inline-basic-image" src="/static/images/uom-research-week-2017/uom-research-week-2017-showcase-1.jpg" />
 </ImageCaption>
 
 There were about twenty sessions, with most of them being run simultaneously. Obviously I couldn’t attend all of them so I had to be pretty selective about which ones to attend. I have been pretty interested in Big Data and cloud computing lately so I chose to attend all the sessions related to these topics. Apart from Big Data and Cloud Computing there were topics such as Biometric Data Storage, design and implementation of a UDP tunnel for OpenSSH, gene expression profiling, erasure coding etc.
 
 <ImageCaption caption="An accessibility app for smartphones">
-  <img loading="lazy" alt="An accessibility app to help smartphone users with disabilities" class="inline-basic-image" src="images/uom-research-week-2017/uom-research-week-2017-showcase-2.jpg" />
+  <enhanced:img alt="An accessibility app to help smartphone users with disabilities" class="inline-basic-image" src="/static/images/uom-research-week-2017/uom-research-week-2017-showcase-2.jpg" />
 </ImageCaption>
 
 With the advent of ‘smart cities’ in Mauritius it is possible that in the future more research will be oriented towards Machine to Machine(M2M) Communication, which involves monitoring systems, wireless sensors and all sorts of connected devices. Hopefully such research will actually be relevant and useful to the industry in Mauritius, ultimately improving our economic status.

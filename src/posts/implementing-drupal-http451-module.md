@@ -17,7 +17,7 @@ thumbnail: images/implementing-drupal-http451-module/thumbnail.png
 ---
 
 <script>
-    import Image from 'svimg/Image.svelte';
+    
     import ImageCaption from './image-caption.svelte';
     import { Tweet } from 'sveltekit-embed'
 </script>
@@ -33,20 +33,20 @@ The team was divided into 2 small teams - Implementation and Interoperability. I
 ## InterOp and Implementation teams
 
 <ImageCaption>
-  <img alt="test" class="inline-basic-image" src="images/implementing-drupal-http451-module/implementing-drupal-http451-module-photo-1.jpg" />
+  <enhanced:img alt="Cyberstorm.mu memebers InterOp & Implementation teams" class="inline-basic-image" src="/static/images/implementing-drupal-http451-module/implementing-drupal-http451-module-photo-1.jpg" />
 </ImageCaption>
 
 I even encountered some issues especially concerning parsing of json files in php. My module was creating valid json but as soon as it was appending data to the files it broke the structure. Luckily thanks to a nice [json formatter](https://jsonformatter.curiousconcept.com/) tool which I found online, I managed to identify and debug the issue.
 
 <ImageCaption caption="Result of a censored page using the http451module">
-  <img alt="test" class="inline-basic-image" src="images/implementing-drupal-http451-module/implementing-drupal-http451-module-screenshot-1.png" />
+  <enhanced:img alt="Result of a censored page using the http451module" class="inline-basic-image" src="/static/images/implementing-drupal-http451-module/implementing-drupal-http451-module-screenshot-1.png" />
 </ImageCaption>
 
 Meanwhile the InterOp team who were tasked with working on TLS 1.3 were testing for [session resumption](https://blog.cloudflare.com/tls-session-resumption-full-speed-and-secure/) and [0-RTT](https://blog.cloudflare.com/introducing-0-rtt/) on some popular open source libraries. They had some issues as well but in the end everyone managed to achieve their goal.
 
 On the last day of the hackathon everyone made a one minute video to explain what they've been working on and what was their opinions on the hackathon. I definitely wasted some time preparing for this one since i'm not used to that kind of thing. The hackathon finally came to an end. The only thing left was to watch the presentations live from Montreal which were scheduled for 22:00(Mauritius time).
 <ImageCaption>
-<img alt="test" class="inline-basic-image" src="images/implementing-drupal-http451-module/implementing-drupal-http451-module-photo-2.jpg" />
+<enhanced:img alt="Aftermath of hackathon" class="inline-basic-image" src="/static/images/implementing-drupal-http451-module/implementing-drupal-http451-module-photo-2.jpg" />
 </ImageCaption>
 
 Throughout these 4 days of hacking code we didn't only spend time in front of our screens. We went for walks along the beach and some of us even went for a swim in the swimming pool that came with the villa where we were staying at. We spent lots of time together and had a decent amount of fun. It an unprecedented experience for me I must say. I got the opportunity to get to know some people better and meet new ones as well. On top of that I got familiar with Drupal and I look forward to improving the http 451 module I made as right now It lacks some features like geolocation.
