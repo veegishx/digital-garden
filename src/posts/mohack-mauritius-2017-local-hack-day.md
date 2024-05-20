@@ -31,7 +31,7 @@ MoHack was organised by [cyberstorm.mu](https://cyberstorm.mu) on the 2nd of Dec
 While the event was due to start at 08:00, we got there 20 mins earlier. Hans who was attending the hackathon along with me bought a 1GB data plan since it was already announced beforehand that wifi connectivity might be very limited. Once we got there, we confirmed our presence by registering and we were then given a shirt for the event.
 
 <ImageCaption caption="The organizing team getting the stage ready for presentations">
-  <img alt="test" class="inline-basic-image" src="images/mohack-mauritius-2017-local-hack-day/mohack-mauritius-2017-local-hack-day-photo-1.jpg" />
+  <Image class="inline-basic-image" src="images/mohack-mauritius-2017-local-hack-day/mohack-mauritius-2017-local-hack-day-photo-1.jpg" />
 </ImageCaption>
 
 ## Git Basics
@@ -39,11 +39,11 @@ While the event was due to start at 08:00, we got there 20 mins earlier. Hans wh
 The opening of the event was a bit off schedule but after our hosts made sure that everyone had access to wifi and power for our laptops/PCs, the hackathon was smoothly kicked off by [Kifah](https://masky.me) who was one of the organisers and speakers. He started by explaining the idea behind MoHack before transitioning into the basics of popular versioning software, [Git](https://git-scm.com).
 
 <ImageCaption caption="Opening of MoHack">
-  <img alt="test" class="inline-basic-image" src="images/mohack-mauritius-2017-local-hack-day/mohack-mauritius-2017-local-hack-day-photo-2.jpg" />
+  <Image class="inline-basic-image" src="images/mohack-mauritius-2017-local-hack-day/mohack-mauritius-2017-local-hack-day-photo-2.jpg" />
 </ImageCaption>
 
 <ImageCaption caption="Kifah explaining the basics of git and how to apply a patch">
-  <img alt="test" class="inline-basic-image" src="images/mohack-mauritius-2017-local-hack-day/mohack-mauritius-2017-local-hack-day-photo-3.jpg" />
+  <Image class="inline-basic-image" src="images/mohack-mauritius-2017-local-hack-day/mohack-mauritius-2017-local-hack-day-photo-3.jpg" />
 </ImageCaption>
 
 ## Lunch
@@ -55,13 +55,13 @@ After an interactive tutorial surrounding the presentation on git, it was alread
 About an hour later, lunch is over and it's now [Codarren's](https://codarren.com/) turn to take the stage. Before starting his presentation on Developing Extensions for Chrome, he spoke a bit about his contributions to open source projects and most importantly as a passionate coder with a particular liking for bug-hunting.
 
 <ImageCaption caption="Codarren mentioning his notable contributions to Open Source Software and IETF hackathons">
-  <img alt="test" class="inline-basic-image" src="images/mohack-mauritius-2017-local-hack-day/mohack-mauritius-2017-local-hack-day-photo-4.jpg" />
+  <Image class="inline-basic-image" src="images/mohack-mauritius-2017-local-hack-day/mohack-mauritius-2017-local-hack-day-photo-4.jpg" />
 </ImageCaption>
 
 Codarren, having developed some extensions in the past, such as [Week Ly](https://github.com/codarrenvelvindron/Week-Ly), shared his experience with us by giving a throughout explanation of the structure of an extension and its essential component, which is the [manifest.json](https://developer.chrome.com/extensions/getstarted) file.
 
 <ImageCaption caption="The manifest.json file explained using a pizza delivery guy as analogy">
-  <img alt="test" class="inline-basic-image" src="images/mohack-mauritius-2017-local-hack-day/mohack-mauritius-2017-local-hack-day-photo-5.jpg" />
+  <Image class="inline-basic-image" src="images/mohack-mauritius-2017-local-hack-day/mohack-mauritius-2017-local-hack-day-photo-5.jpg" />
 </ImageCaption>
 
 ## OSS contribution competition and Google Code-in
@@ -69,7 +69,7 @@ Codarren, having developed some extensions in the past, such as [Week Ly](https:
 Once again, Kifah took the stage to announce a competition concerning contributing to Open Source Software on Github for university students. This consisted of solving issues from a handpicked list of software found on GitHub. These issues were then presented in the form of tasks and posted on the Bitrix24 web platform for easier management and collaboration. This involved following general contribution guidelines and writing quality code that would be used in production.
 
 <ImageCaption>
-  <img alt="test" class="inline-basic-image" src="images/mohack-mauritius-2017-local-hack-day/mohack-mauritius-2017-local-hack-day-photo-6.jpg" />
+  <Image class="inline-basic-image" src="images/mohack-mauritius-2017-local-hack-day/mohack-mauritius-2017-local-hack-day-photo-6.jpg" />
 </ImageCaption>
 
 As for secondary students who were present, Kifah gave them more details about the Google code-in competition which is organised yearly by Google.
@@ -85,9 +85,9 @@ Also, congratulations to [@Nythiennzo](https://twitter.com/Nythiennzo) for winni
 <Tweet tweetLink="Nythiennzo/status/936963080625336321" />
 
 <ImageCaption>
-  <img alt="test" class="inline-basic-image" src="images/mohack-mauritius-2017-local-hack-day/mohack-mauritius-2017-local-hack-day-photo-7.jpg" />
+  <Image class="inline-basic-image" src="images/mohack-mauritius-2017-local-hack-day/mohack-mauritius-2017-local-hack-day-photo-7.jpg" />
 </ImageCaption>
 
 <ImageCaption>
-  <img alt="test" class="inline-basic-image" src="images/mohack-mauritius-2017-local-hack-day/mohack-mauritius-2017-local-hack-day-photo-8.jpg" />
+  <Image class="inline-basic-image" src="images/mohack-mauritius-2017-local-hack-day/mohack-mauritius-2017-local-hack-day-photo-8.jpg" />
 </ImageCaption>
