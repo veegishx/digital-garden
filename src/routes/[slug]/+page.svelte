@@ -77,7 +77,7 @@
 		}
 	}}
 />
-
+<div id="progress-bar"></div>
 <article class="markdown-content">
 	<header>
 		<p class="markdown-content__meta-date">Initially published on {formatDate(data.meta.date)}</p>
@@ -100,6 +100,32 @@
 </article>
 
 <style>
+	@keyframes grow-progress {
+		from {
+			transform: scaleX(0);
+			background: rgba(0, 112, 240, 1) 0%;
+			box-shadow: 1px 1px 16px 1px rgba(0, 112, 240, 1);
+		}
+		to {
+			transform: scaleX(1);
+			background: rgba(199, 0, 128, 1) 100%;
+			box-shadow: 1px 1px 16px 1px rgba(199, 0, 128, 1);
+		}
+	}
+
+	#progress-bar {
+		z-index: 1;
+		position: fixed;
+		left: 0;
+		top: 0;
+		width: 100%;
+		height: 2px;
+		background: rgb(0, 112, 240);
+		box-shadow: 1px 1px 16px 1px rgba(0, 112, 240, 1);
+		transform-origin: 0 50%;
+		animation: grow-progress auto linear;
+		animation-timeline: scroll();
+	}
 	header {
 		text-align: center;
 		padding: 10px;
