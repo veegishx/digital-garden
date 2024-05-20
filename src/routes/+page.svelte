@@ -5,10 +5,10 @@
 	import { JsonLd, MetaTags } from 'svelte-meta-tags';
 	export let data;
 
-	export const leftColumnData = data.homePagePosts.posts.filter((post) =>
+	export const leftColumnData = data?.homePagePosts?.posts?.filter((post) =>
 		post.categories.includes('Privacy')
 	);
-	export const rightColumnData = data.homePagePosts.posts.filter((post) =>
+	export const rightColumnData = data?.homePagePosts?.posts?.filter((post) =>
 		post.categories.includes('Debug Log')
 	);
 

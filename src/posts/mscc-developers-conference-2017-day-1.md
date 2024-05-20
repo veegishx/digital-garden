@@ -25,11 +25,11 @@ The third edition of the Developers Conference Mauritius, organised by the [Maur
 We met at 09:15 and reached the venue 5 minutes later where to wait another 5 minutes to collect our badges since the room was quite crowded.
 
 <ImageCaption caption="Badge, a recruiting ad from a sponsor and a folder">
-  <img alt="test" class="inline-basic-image" src="images/mscc-developers-conference-2017-day-1/mscc-developers-conference-2017-day-1-folder-1.jpg" />
+  <Image class="inline-basic-image" src="images/mscc-developers-conference-2017-day-1/mscc-developers-conference-2017-day-1-folder-1.jpg" />
 </ImageCaption>
 
 <ImageCaption caption="Inside the folder: Surprise! Some swag – Free stickers, a notebook & a pen">
-  <img alt="test" class="inline-basic-image" src="images/mscc-developers-conference-2017-day-1/mscc-developers-conference-2017-day-1-folder-2.jpg" />
+  <Image class="inline-basic-image" src="images/mscc-developers-conference-2017-day-1/mscc-developers-conference-2017-day-1-folder-2.jpg" />
 </ImageCaption>
 
 ## 09:30 – Opening Keynote
@@ -39,11 +39,11 @@ The keynote was presented by [Jochen Kirstätter](https://twitter.com/JKirstaett
 With an ageing population economic growth will slow down and innovation may be halted. Therefore it is important to train young graduates so as to provide better human capital to the job market and promote investment, technological growth and innovation.
 
 <ImageCaption caption="Vidia Moonegan">
-  <img alt="test" class="inline-basic-image" src="images/mscc-developers-conference-2017-day-1/mscc-developers-conference-2017-day-1-speaker-1.jpg" />
+  <Image class="inline-basic-image" src="images/mscc-developers-conference-2017-day-1/mscc-developers-conference-2017-day-1-speaker-1.jpg" />
 </ImageCaption>
 
 <ImageCaption caption="Jochen Kirstätter">
-  <img alt="test" class="inline-basic-image" src="images/mscc-developers-conference-2017-day-1/mscc-developers-conference-2017-day-1-speaker-2.jpg" />
+  <Image class="inline-basic-image" src="images/mscc-developers-conference-2017-day-1/mscc-developers-conference-2017-day-1-speaker-2.jpg" />
 </ImageCaption>
 
 **Session Quote:**
@@ -73,17 +73,17 @@ This session was about introducing the MSCC and its aims to developers and poten
 Building a successful IT industry takes more than just good marketing. In this session Loganaden Velvindron from hackers.mu spoke about the factors influencing the IT industry both from a local and global standpoint. In order to layout the weaknesses Mauritius has in it’s IT industry, he compiled some data from Google Public Data and Github. One of the comparisons was about the difference between the amount of developers from Mauritius and Singapore who owned a Github account. The difference was quite significant with Mauritius being quite far behind singapore in terms of OSS contributions. The reason this comparison was carried out based on Github data was because nowadays having an online persona greatly increases the potential of being recruited by companies in the IT industry. It’s easier and more efficient for companies to recruit employees from a country where the majority of developers have an online identity. Otherwise they would have to carry out extensive research about the human capital they are being offered by a country since very little information can be found online about it’s labour force. Therefore being active online greatly helps towards bringing inward invesment.
 
 <ImageCaption caption="Presenting comparison data between Mauritius and Singapore">
-  <img alt="test" class="inline-basic-image" src="images/mscc-developers-conference-2017-day-1/mscc-developers-conference-2017-day-1-logan-1.jpg" />
+  <Image class="inline-basic-image" src="images/mscc-developers-conference-2017-day-1/mscc-developers-conference-2017-day-1-logan-1.jpg" />
 </ImageCaption>
 
 <ImageCaption caption="Loganaden Velvindron">
-  <img alt="test" class="inline-basic-image" src="images/mscc-developers-conference-2017-day-1/mscc-developers-conference-2017-day-1-logan-2.jpg" />
+  <Image class="inline-basic-image" src="images/mscc-developers-conference-2017-day-1/mscc-developers-conference-2017-day-1-logan-2.jpg" />
 </ImageCaption>
 
 Avinash Meetoo, who was also present, seized the opportunity to speak about how automation is currently changing the landscape of the job market and why we need a young population that can compete on international grounds in order to meet future demands.
 
 <ImageCaption caption="Avinash Meetoo speaking about automation">
-  <img alt="test" class="inline-basic-image" src="images/mscc-developers-conference-2017-day-1/mscc-developers-conference-2017-day-1-automation.jpg" />
+  <Image class="inline-basic-image" src="images/mscc-developers-conference-2017-day-1/mscc-developers-conference-2017-day-1-automation.jpg" />
 </ImageCaption>
 
 **er, another quote:**

@@ -41,7 +41,7 @@ dotnet --list-sdks && dotnet --list-runtimes
 ```
 
 <ImageCaption>
-  <img alt="test" class="inline-basic-image" src="images/setting-up-a-dotnet-development-environment-on-manjaro/setting-up-a-dotnet-development-environment-on-manjaro-screenshot-1.png" />
+  <Image class="inline-basic-image" src="images/setting-up-a-dotnet-development-environment-on-manjaro/setting-up-a-dotnet-development-environment-on-manjaro-screenshot-1.png" />
 </ImageCaption>
 
 Once the packages are installed, check whether the dotnet executable is located at `/usr/bin/dotnet` by running `whereis dotnet`, otherwise some issues may arise.
@@ -73,5 +73,5 @@ dotnet run Program.cs
 If it outputs Hello World! without any errors then you are good to go!
 
 <ImageCaption>
-  <img alt="test" class="inline-basic-image" src="images/setting-up-a-dotnet-development-environment-on-manjaro/setting-up-a-dotnet-development-environment-on-manjaro-screenshot-2.png" />
+  <Image class="inline-basic-image" src="images/setting-up-a-dotnet-development-environment-on-manjaro/setting-up-a-dotnet-development-environment-on-manjaro-screenshot-2.png" />
 </ImageCaption>
