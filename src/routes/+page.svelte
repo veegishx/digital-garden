@@ -856,7 +856,7 @@
 		.featured-post {
 			background: var(--featured-article-bg);
 			padding: 15px;
-			border: 1px solid;
+			border: 1px solid var(--articles-br);
 		}
 	}
 </style>

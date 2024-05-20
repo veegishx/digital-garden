@@ -53,7 +53,7 @@ html {
 	--featured-article-bg: #090d10;
 	--featured-tag-bg: white;
 	--featured-tag-fg: black;
-	--articles-br: rgb(231, 231, 231);
+	--articles-br: #212529;
 }
 
 @media (prefers-color-scheme: light) {
@@ -90,7 +90,7 @@ html {
 	--featured-article-bg: #090d10;
 	--featured-tag-bg: white;
 	--featured-tag-fg: black;
-	--articles-br: rgb(231, 231, 231);
+	--articles-br: #212529;
 }
 
 [color-scheme='light'] {
@@ -115,7 +115,6 @@ html {
 
 html,
 body {
-	height: 100%;
 	word-wrap: break-word;
 	background: var(--background);
 }
