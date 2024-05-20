@@ -16,7 +16,7 @@ html {
 	--surface-2-dark: var(--gray-11);
 	--surface-3-dark: var(--gray-10);
 	--surface-4-dark: var(--gray-9);
-	--background-dark: var(--gradient-8);
+	--background-dark: #01030c;
 	--border-dark: var(--gray-9);
 	--code-inline-fg: var(--indigo-8);
 	--code-inline-bg: var(--gray-9);
