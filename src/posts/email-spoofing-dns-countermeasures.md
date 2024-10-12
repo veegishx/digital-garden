@@ -10,7 +10,7 @@ categories:
   - SPF
   - DKIM
   - DMARC
-  - Phising
+  - Phishing
 
 featured: true
 published: true
