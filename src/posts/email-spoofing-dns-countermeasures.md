@@ -28,7 +28,7 @@ When it comes to phishing attacks, email is a favorite attack vector among threa
 To demonstrate how easy it can be to spoof email addresses and send one of those phishing emails to vulnerable email clients/servers, we are going to come up with a scenario involving a fictional company called Morezo, which specializes in software development. Morezo has a website available at https://morezo.xyz. As a potential attacker, we learnt that Morezo has a few email inboxes mapped on the same domain as they were included in an email list dump we found somewhere on the web. Two of the emails we found were [appteam@morezo.xyz](mailto:appteam@morezo.xyz) and [security@morezo.xyz](mailto:security@morezo.xyz) which we are going to target.
 
 <ImageCaption>
-<enhanced:img sizes="(min-width:1920px) 1280px, (min-width:1080px) 640px, (min-width:768px) 400px" alt="Morezo Homepage" class="inline-basic-image" src="/static/images/email-spoofing/email-spoofing-1.png" />
+<img sizes="(min-width:1920px) 1280px, (min-width:1080px) 640px, (min-width:768px) 400px" alt="Morezo Homepage" class="inline-basic-image" src="images/email-spoofing/email-spoofing-1.png" />
 </ImageCaption>
 
 Morezo Homepage
@@ -40,7 +40,7 @@ dig morezo.xyz MX
 ```
 
 <ImageCaption caption="Querying Morezo DNS for MX records">
-<enhanced:img sizes="(min-width:1920px) 1280px, (min-width:1080px) 640px, (min-width:768px) 400px" class="inline-basic-image" src="/static/images/email-spoofing/email-spoofing-2.png" />
+<img sizes="(min-width:1920px) 1280px, (min-width:1080px) 640px, (min-width:768px) 400px" class="inline-basic-image" src="images/email-spoofing/email-spoofing-2.png" />
 </ImageCaption>
 
 Running `dig` should return the FQDN of their SMTP server, which in this case is [mx2.privateemail.com](http://mx2.privateemail.com) and [mx1.privateemail.com](http://mx1.privateemail.com). We can now attempt to communicate with one of the SMTP servers using `telnet` (or `netcat`) by running the following command:
@@ -52,31 +52,31 @@ telnet mx1.privateemail.com 25
 If there is no firewall blocking inbound access to the server on port 25 then this should allow us to open a telnet session.
 
 <ImageCaption caption="Connecting to Morezo's mail server via telnet">
-<enhanced:img sizes="(min-width:1920px) 1280px, (min-width:1080px) 640px, (min-width:768px) 400px" class="inline-basic-image" src="/static/images/email-spoofing/email-spoofing-3.png" />
+<img sizes="(min-width:1920px) 1280px, (min-width:1080px) 640px, (min-width:768px) 400px" class="inline-basic-image" src="images/email-spoofing/email-spoofing-3.png" />
 </ImageCaption>
 
 Now that the session is open, we can execute the required SMTP commands, which are all explained in [RFC 5321 (Section 4.1)](https://datatracker.ietf.org/doc/html/rfc5321#section-4.1). The order of the commands executed are explained in [section 3.3](https://datatracker.ietf.org/doc/html/rfc5321#section-3.3). Covering SMTP here will just make this post unnecessarily long. I’ll make use of Google’s Gemini to generate the email’s body to make it more legitimate looking.
 
 <ImageCaption caption="Sending an email via SMTP">
-<enhanced:img sizes="(min-width:1920px) 1280px, (min-width:1080px) 640px, (min-width:768px) 400px" class="inline-basic-image" src="/static/images/email-spoofing/email-spoofing-4.png" />
+<img sizes="(min-width:1920px) 1280px, (min-width:1080px) 640px, (min-width:768px) 400px" class="inline-basic-image" src="images/email-spoofing/email-spoofing-4.png" />
 </ImageCaption>
 
 Now that our email transaction has been successful, we can check our email inbox on morezo’s side.
 
 <ImageCaption caption="'Malicious' email with spoofed sender successfully reached morezo's inbox">
-<enhanced:img sizes="(min-width:1920px) 1280px, (min-width:1080px) 640px, (min-width:768px) 400px" class="inline-basic-image" src="/static/images/email-spoofing/email-spoofing-5.png" />
+<img sizes="(min-width:1920px) 1280px, (min-width:1080px) 640px, (min-width:768px) 400px" class="inline-basic-image" src="images/email-spoofing/email-spoofing-5.png" />
 </ImageCaption>
 
 As expected, without any spoofing countermeasures in place, the email has successfully reached morezo’s inbox, and not only that but we have also been able to spoof the sender’s identity!
 
 <ImageCaption caption="Identity spoofed">
-<enhanced:img sizes="(min-width:1920px) 1280px, (min-width:1080px) 640px, (min-width:768px) 400px" class="inline-basic-image" src="/static/images/email-spoofing/email-spoofing-6.png" />
+<img sizes="(min-width:1920px) 1280px, (min-width:1080px) 640px, (min-width:768px) 400px" class="inline-basic-image" src="images/email-spoofing/email-spoofing-6.png" />
 </ImageCaption>
 
 Looking at the email headers, we can see that this is not a legitimate email coming from the real “Kowalski Miller”.
 
 <ImageCaption caption="Inspecting email headers shows real sender's identity">
-<enhanced:img sizes="(min-width:1920px) 1280px, (min-width:1080px) 640px, (min-width:768px) 400px" class="inline-basic-image" src="/static/images/email-spoofing/email-spoofing-7.png" />
+<img sizes="(min-width:1920px) 1280px, (min-width:1080px) 640px, (min-width:768px) 400px" class="inline-basic-image" src="images/email-spoofing/email-spoofing-7.png" />
 </ImageCaption>
 
 However, in reality most people won’t check an email’s header. Additionally, any trickery like encoding special characters to make the attacker’s domain similiar to the target’s domain makes it hard to spot for the human eye.
@@ -92,7 +92,7 @@ We are going to explore some DNS-based countermeasures that we can implement to 
 SPF is a **domain-based** email authentication method whereby domain owners configure their DNS with a list of authorized IP addresses and mail servers which are allowed to send emails using their domain. The recipient mail servers can then use this list to cross-check that any email received indeed originated from an authorized server.
 
 <ImageCaption caption="How SPF works">
-<enhanced:img sizes="(min-width:1920px) 1280px, (min-width:1080px) 640px, (min-width:768px) 400px" class="inline-basic-image" src="/static/images/email-spoofing/email-spoofing-8.png" />
+<img sizes="(min-width:1920px) 1280px, (min-width:1080px) 640px, (min-width:768px) 400px" class="inline-basic-image" src="images/email-spoofing/email-spoofing-8.png" />
 </ImageCaption>
 
 In it’s simplest form, an SPF TXT record may look like this:
@@ -128,7 +128,7 @@ SPF was designed to validate the envelope `Mail From` header, not to check for a
 DKIM is another email security standard, except unlike SPF, it uses a signed hash to detect if an email has been altered during transit or forged at the source. DKIM works by employing a set of private and public keys to sign and verify any emails being sent. The private key is used to sign a portion of the email and this signature is then included in the email. The public key, published in the DNS record (DKIM TXT Record) of the receiving email server is then used to verify if the signature is valid. As a note, a domain can also have multiple public DKIM keys. Once the signature verified, DKIM authentication is successful and the email is considered legitimate. Otherwise if DKIM fails then there is a potential for the email to be blocked or land into a spam folder.
 
 <ImageCaption caption="How DKIM works">
-<enhanced:img sizes="(min-width:1920px) 1280px, (min-width:1080px) 640px, (min-width:768px) 400px" class="inline-basic-image" src="/static/images/email-spoofing/email-spoofing-9.png" />
+<img sizes="(min-width:1920px) 1280px, (min-width:1080px) 640px, (min-width:768px) 400px" class="inline-basic-image" src="images/email-spoofing/email-spoofing-9.png" />
 </ImageCaption>
 
 A DKIM TXT Record may look like this:
@@ -164,7 +164,7 @@ v=DMARC1; p=reject; rua=mailto:appteam@morezo.xyz; adkim=s; aspf=s;
 Now that we know about The Holy Trinity of email authentication, we can apply them to [`morezo.xyz`](http://morezo.xyz) email configuration and try to send the spoofed email again to see if anything has changed.
 
 <ImageCaption caption="DMARC Policy applied to Morezo's email configuration successfully prevented spoofing">
-<enhanced:img sizes="(min-width:1920px) 1280px, (min-width:1080px) 640px, (min-width:768px) 400px" class="inline-basic-image" src="/static/images/email-spoofing/email-spoofing-10.png" />
+<img sizes="(min-width:1920px) 1280px, (min-width:1080px) 640px, (min-width:768px) 400px" class="inline-basic-image" src="images/email-spoofing/email-spoofing-10.png" />
 </ImageCaption>
 
 As expected, the combination of SPF, DKIM and DMARC successfully stopped our “malicious” email from reaching the recipient. Mission accomplished!

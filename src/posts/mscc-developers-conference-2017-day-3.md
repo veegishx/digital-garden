@@ -59,7 +59,7 @@ Quote from a panelist:
 
 ## 14:30 – Fast coding skills
 
-A small and pretty fast presentation by Codarren Velvindron from hackers.mu about the attitude needed towards problems in order to solve them efficiently. This one was quite fun and like other members from <cyberstorm.mu> he encouraged OSS and contributions.
+A small and pretty fast presentation by Codarren Velvindron from hackers.mu about the attitude needed towards problems in order to solve them efficiently. This one was quite fun and like other members from cyberstorm.mu he encouraged OSS and contributions.
 
 <Quote author="Codarren Velvindron" quote="Can’t understand a line of code? Delete it and see what happens next." />
 

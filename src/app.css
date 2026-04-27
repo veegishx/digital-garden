@@ -1,14 +1,19 @@
 @import '@fontsource/manrope';
 @import '@fontsource/jetbrains-mono';
 @import '@fontsource/bebas-neue';
+@import 'tailwindcss';
+
+@theme {
+	--font-sans: 'Manrope', sans-serif;
+	--font-bebas: 'Bebas Neue', sans-serif;
+	--font-mono: 'JetBrains Mono', monospace;
+}
 
 html {
-	/* font */
 	--font-sans: 'Manrope', sans-serif;
 	--font-bebas-neue: 'Bebas Neue', sans-serif;
 	--font-mono: 'JetBrains Mono', monospace;
 
-	/* dark */
 	--brand-dark: var(--orange-3);
 	--text-1-dark: var(--gray-3);
 	--text-2-dark: var(--gray-5);
@@ -21,7 +26,6 @@ html {
 	--code-inline-fg: var(--indigo-8);
 	--code-inline-bg: var(--gray-9);
 
-	/* light */
 	--brand-light: var(--orange-10);
 	--text-1-light: var(--gray-8);
 	--text-2-light: var(--gray-7);
@@ -43,7 +47,7 @@ html {
 	--brand: var(--brand-dark);
 	--text-1: var(--text-1-dark);
 	--text-2: var(--text-2-dark);
-	--surface-1: var(--su Read rface-1-dark);
+	--surface-1: var(--surface-1-dark);
 	--surface-2: var(--surface-2-dark);
 	--surface-3: var(--surface-3-dark);
 	--surface-4: var(--surface-4-dark);
@@ -66,9 +70,11 @@ html {
 		--text-1: var(--text-1-light);
 		--text-2: var(--text-2-light);
 		--surface-1: var(--surface-1-light);
-		--surface-2: var(--surf--borderWidth-red-8);
+		--surface-2: var(--surface-2-light);
+		--border: var(--border-light);
+		--code-inline-fg: var(--red-8);
 		--code-inline-bg: var(--gray-1);
-		--featured-article-bg: wheat;
+		--featured-article-bg: white;
 		--featured-tag-bg: black;
 		--featured-tag-fg: white;
 		--articles-br: rgb(231, 231, 231);
@@ -185,7 +191,8 @@ pre > code {
 	background-color: var(--surface-1);
 	color: var(--text-2);
 }
-text-wrap .surface-2 {
+
+.surface-2 {
 	background-color: var(--surface-2);
 	color: var(--text-2);
 }
@@ -199,6 +206,7 @@ text-wrap .surface-2 {
 	background-color: var(--surface-4);
 	color: var(--text-1);
 }
+
 .article-body {
 	padding: 12px;
 }
@@ -219,7 +227,7 @@ text-wrap .surface-2 {
 }
 
 .article-body :is(ul, ol) {
-	list-style-type: '❤️‍🔥';
+	list-style-type: '🔥';
 	padding-left: var(--size-5);
 }
 
@@ -252,11 +260,13 @@ blockquote {
 	display: block;
 	max-inline-size: unset;
 }
+
 .image-caption {
 	display: block;
 	margin-top: 20px;
 	margin-bottom: 20px;
 }
+
 .image-caption figcaption {
 	max-inline-size: unset;
 	display: flex;

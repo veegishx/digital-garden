@@ -71,7 +71,7 @@ public class Kata {
 
 Let's get started by writing a small Calories Calculator program which will output the amount of calories a vegetable contains to a text file. To keep things well structured we will define our main class and our tests in two separate packages.
 <ImageCaption>
-<enhanced:img alt="Structure of tests files and folders" class="inline-basic-image" src="/static/images/getting-started-with-unit-testing-in-java-using-junit/getting-started-with-unit-testing-in-java-using-junit-screenshot-1.png" />
+<img alt="Structure of tests files and folders" class="inline-basic-image" src="images/getting-started-with-unit-testing-in-java-using-junit/getting-started-with-unit-testing-in-java-using-junit-screenshot-1.png" />
 </ImageCaption>
 
 We are going to test the four methods of our Vegetable class, which are:
@@ -207,11 +207,11 @@ import org.junit.jupiter.api.Test;
 
 In case JUnit doesn't come bundled with your IDE, you'll have to download it from the Maven repo.
 <ImageCaption>
-<enhanced:img alt="JUnit download from Maven repo" class="inline-basic-image" src="/static/images/getting-started-with-unit-testing-in-java-using-junit/getting-started-with-unit-testing-in-java-using-junit-screenshot-2.png" />
+<img alt="JUnit download from Maven repo" class="inline-basic-image" src="images/getting-started-with-unit-testing-in-java-using-junit/getting-started-with-unit-testing-in-java-using-junit-screenshot-2.png" />
 </ImageCaption>
 
 <ImageCaption>
-    <enhanced:img alt="JUnit install from Maven repo" class="inline-basic-image" src="/static/images/getting-started-with-unit-testing-in-java-using-junit/getting-started-with-unit-testing-in-java-using-junit-screenshot-3.png" />
+    <img alt="JUnit install from Maven repo" class="inline-basic-image" src="images/getting-started-with-unit-testing-in-java-using-junit/getting-started-with-unit-testing-in-java-using-junit-screenshot-3.png" />
 </ImageCaption>
 
 Optionally you can also import [DisplayNames](https://junit.org/junit5/docs/current/user-guide/#writing-tests-display-names) from the API to assign custom names to your tests.
@@ -273,17 +273,17 @@ public void vegetableCarboTest() {
 Now that we have written our tests we need to run them. Different IDEs have different ways of running these tests. You can read about how to run them [here](https://junit.org/junit5/docs/current/user-guide/#running-tests)
 
 <ImageCaption>
-    <enhanced:img alt="IDE running tests" class="inline-basic-image" src="/static/images/getting-started-with-unit-testing-in-java-using-junit/getting-started-with-unit-testing-in-java-using-junit-screenshot-4.png" />
+    <img alt="IDE running tests" class="inline-basic-image" src="images/getting-started-with-unit-testing-in-java-using-junit/getting-started-with-unit-testing-in-java-using-junit-screenshot-4.png" />
 </ImageCaption>
 
 Here are the results of the tests:
 <ImageCaption>
-<enhanced:img alt="Results of tests" class="inline-basic-image" src="/static/images/getting-started-with-unit-testing-in-java-using-junit/getting-started-with-unit-testing-in-java-using-junit-screenshot-5.png" />
+<img alt="Results of tests" class="inline-basic-image" src="images/getting-started-with-unit-testing-in-java-using-junit/getting-started-with-unit-testing-in-java-using-junit-screenshot-5.png" />
 </ImageCaption>
 
 As you can see they are all successful. Now let's see what happens if we change the expected value for vegetableFatTest from 0.198 to 0.197
 <ImageCaption>
-<enhanced:img alt="Updated test expected value" class="inline-basic-image" src="/static/images/getting-started-with-unit-testing-in-java-using-junit/getting-started-with-unit-testing-in-java-using-junit-screenshot-6.png" />
+<img alt="Updated test expected value" class="inline-basic-image" src="images/getting-started-with-unit-testing-in-java-using-junit/getting-started-with-unit-testing-in-java-using-junit-screenshot-6.png" />
 </ImageCaption>
 
 Eventually the `vegetableFatTest` fails and you can see why in the error logs.

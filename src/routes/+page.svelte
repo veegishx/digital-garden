@@ -3,28 +3,32 @@
 	import * as config from '$lib/config.js';
 	import { Star } from 'lucide-svelte';
 	import { JsonLd, MetaTags } from 'svelte-meta-tags';
-	export let data;
 
-	export const leftColumnData = data.homePagePosts.posts.filter((post) =>
-		post.categories.includes('Privacy')
+	let { data } = $props();
+
+	const leftColumnData = $derived(
+		data.homePagePosts.posts.filter((post: { categories: string[] }) =>
+			post.categories.includes('Privacy')
+		)
 	);
-	export const rightColumnData = data.homePagePosts.posts.filter((post) =>
-		post.categories.includes('Debug Log')
+	const rightColumnData = $derived(
+		data.homePagePosts.posts.filter((post: { categories: string[] }) =>
+			post.categories.includes('Debug Log')
+		)
 	);
 
-	export const generateLayout = () => {
-		if (leftColumnData?.length < 1 && rightColumnData?.length < 1) {
-			return 'full-width-grid';
+	const generateLayout = $derived(() => {
+		if (leftColumnData.length < 1 && rightColumnData.length < 1) {
+			return 'grid-cols-1';
 		}
-
-		if (leftColumnData?.length > 0 && rightColumnData?.length < 1) {
-			return 'left-quater-grid';
+		if (leftColumnData.length > 0 && rightColumnData.length < 1) {
+			return 'grid-cols-12';
 		}
-
-		if (leftColumnData?.length < 1 && rightColumnData?.length > 0) {
-			return 'right-quater-grid';
+		if (leftColumnData.length < 1 && rightColumnData.length > 0) {
+			return 'grid-cols-8';
 		}
-	};
+		return 'grid-cols-12';
+	});
 </script>
 
 <MetaTags
@@ -99,28 +103,34 @@
 	}}
 />
 
-<div class="archive-notice gradient-border">
+<div
+	class="relative mx-auto w-fit rounded-full px-5 py-1.5 text-center text-[15px] md:text-[16px] shadow-[0_0_0_1px_rgba(0,0,0,0.03),0_2px_4px_rgba(0,0,0,0.05),0_12px_24px_rgba(0,0,0,0.05)] bg-[var(--background)]"
+>
+	<div
+		class="absolute inset-[-2px] rounded-[calc(2*var(--borderWidth))] bg-gradient-to-br from-[#f79533] via-[#ef4e7b] via-[#a166ab] via-[#5073b8] via-[#1098ad] via-[#07b39b] to-[#6fba82] opacity-70 animate-pulse -z-10 bg-[length:300%_300%]"
+	></div>
 	<p>
-		All previous <a href="https://archive.veegish.com">blog posts have been archived </a> for now
+		All previous <a href="https://archive.veegish.com" class="text-[rgb(0,119,255)]"
+			>blog posts have been archived
+		</a> for now
 	</p>
 </div>
 
-<!-- Pick of the day: Display latest featured article -->
-<section class={`above-fold-grid ${generateLayout()}`}>
-	{#if leftColumnData?.length > 0}
-		<div class="above-fold-grid__left-column">
-			<h2 class="column-label">Privacy</h2>
-			<ul class="article-list">
+<section class={`grid gap-10 mx-auto max-w-[1600px] w-full p-5 md:p-[30px] ${generateLayout()}`}>
+	{#if leftColumnData.length > 0}
+		<div class="flex flex-col gap-2.5 col-span-6 md:col-span-4 order-1">
+			<h2 class="text uppercase text-lg font-monounderline p-2.5 text-center">Privacy</h2>
+			<ul class="flex flex-wrap justify-center items-center gap-2.5">
 				{#each leftColumnData.slice(0, 3) as post}
-					<li class="article-list__item--large">
+					<li class="w-full">
 						<a href={post.slug}>
-							<article class="article-list__item-card">
-								<div class="article-list__item-col">
+							<article class="w-full">
+								<div class="flex flex-col items-center text-center">
 									{#if post.thumbnail}
-										<img src={post.thumbnail} alt={post.title} />
+										<img src={post.thumbnail} alt={post.title} class="w-full" />
 									{/if}
-									<h2>{post.title}</h2>
-									<span class="article-list__item-author">{post.author}</span>
+									<h2 class="text-lg mt-2.5">{post.title}</h2>
+									<span class="text-[12.5px] font-mono">{post.author}</span>
 								</div>
 							</article>
 						</a>
@@ -129,13 +139,20 @@
 			</ul>
 		</div>
 	{/if}
-	<div class="above-fold-grid__middle-column featured-post">
+	<div class="col-span-6 md:col-span-8 relative order-0 md:order-2">
 		{#if data.homePagePosts.pickOfTheDay}
 			<a href={data.homePagePosts.pickOfTheDay.slug}>
-				<div class="featured-post__cover">
-					<div class="featured-post__header">
-						<span class="featured-post__icon"><Star size={15} /> Featured</span>
-						<span class="featured-post__category"
+				<div
+					class="relative md:p-4 md:bg-[var(--featured-article-bg)] md:border md:border-[var(--articles-br)]"
+				>
+					<div class="flex gap-2.5 mb-4">
+						<span
+							class="flex gap-2.5 w-fit px-3 py-2 uppercase text-sm font-semibold bg-[var(--featured-tag-bg)] text-[var(--featured-tag-fg)]"
+						>
+							<Star size={15} /> Featured</span
+						>
+						<span
+							class="w-fit px-3 py-2 uppercase text-sm font-mono border text-[var(--featured-post-category-color)]"
 							>{data.homePagePosts.pickOfTheDay.categories[0]}</span
 						>
 					</div>
@@ -143,16 +160,17 @@
 						<img
 							src={data.homePagePosts.pickOfTheDay.thumbnail}
 							alt={data.homePagePosts.pickOfTheDay?.title}
-							class="featured-post__thumbnail"
+							class="w-full"
 						/>
 					{/if}
-					<div class="featured-post__meta">
-						<!-- <p class="featured-post__date">{formatDate(post.date)}</p> -->
-						<h2 class="featured-post__title">{data.homePagePosts.pickOfTheDay.title}</h2>
+					<div class="my-2.5 mx-auto">
+						<h2 class="text-[26px] uppercase leading-tight">
+							{data.homePagePosts.pickOfTheDay.title}
+						</h2>
 					</div>
 				</div>
-				<p class="featured-post__description">{data.homePagePosts.pickOfTheDay.description}</p>
-				<p class="featured-post__author">
+				<p class="text-sm mt-5 mb-5">{data.homePagePosts.pickOfTheDay.description}</p>
+				<p class="text-[12.5px] font-mono">
 					{data.homePagePosts.pickOfTheDay.author} - {new Date(
 						data.homePagePosts.pickOfTheDay.date
 					).toLocaleString('en-GB', {
@@ -164,20 +182,22 @@
 			</a>
 		{/if}
 	</div>
-	{#if rightColumnData?.length > 0}
-		<div class="above-fold-grid__right-column">
-			<h2 class="column-label">The Debug Log</h2>
-			<ul class="article-list">
+	{#if rightColumnData.length > 0}
+		<div
+			class="col-span-5 md:col-span-12 lg:col-span-4 order-3 border-t md:border-t-0 border-[var(--articles-br)] pt-5 md:pt-0"
+		>
+			<h2 class="text uppercase text-lg font-mono underline p-2.5 text-center">The Debug Log</h2>
+			<ul class="flex flex-col">
 				{#each rightColumnData.slice(0, 6) as post}
-					<li class="article-list__item--small">
+					<li class="border-b border-[var(--articles-br)] pb-5 mb-5 last:border-b-0">
 						<a href={post.slug}>
-							<article class="article-list__item-card">
-								<div class="article-list__item-col">
-									<h2>{post.title}</h2>
-									<span class="article-list__item-author">{post.author}</span>
+							<article class="flex items-start justify-center p-3.5">
+								<div class="flex flex-col items-start">
+									<h2 class="text-[16px]">{post.title}</h2>
+									<span class="text-[12.5px] font-mono">{post.author}</span>
 								</div>
 								{#if post.thumbnail}
-									<img src={post.thumbnail} alt={post.title} />
+									<img src={post.thumbnail} alt={post.title} class="w-16 h-16 object-cover" />
 								{/if}
 							</article>
 						</a>
@@ -188,34 +208,31 @@
 	{/if}
 </section>
 
-<section class="latest-posts">
-	<h2 class="latest-posts__label">Latest Posts</h2>
-	<ul class="latest-posts__article-list">
+<section
+	class="flex flex-col overflow-hidden relative mx-auto max-w-[1600px] w-full p-[30px] gap-6 items-center"
+>
+	<h2 class="font-bebas text-4xl">Latest Posts</h2>
+	<ul class="flex flex-col w-full max-w-3xl gap-5">
 		{#each data.homePagePosts.posts as post}
-			<li class="latest-posts__article-list-item">
-				<a
-					href={post.slug}
-					class="latest-posts__article-list-item--link"
-					style={post.thumbnail ? 'flex-direction: row' : 'flex-direction: column'}
-				>
-					<!-- <p class="date">{formatDate(post.date)}</p> -->
+			<li class="max-w-full flex flex-col mb-5 w-full">
+				<a href={post.slug} class="flex flex-col {post.thumbnail ? 'md:flex-row' : ''} gap-5">
 					{#if post.thumbnail}
 						<img
 							loading="lazy"
-							class="latest-posts__article-thumbnail"
+							class="w-full md:max-w-[300px] md:max-h-[300px] object-cover mb-5"
 							src={post.thumbnail}
 							alt={post?.title}
 							width="720"
 							height="500"
 						/>
-						<div class="latest-posts__article-meta">
-							<h2 class="latest-posts__article-title">{post.title}</h2>
-							<p class="latest-posts__article-description">
+						<div class="flex flex-col justify-center">
+							<h2 class="text-2xl mt-5 mb-5">{post.title}</h2>
+							<p class="text-base mb-5">
 								{post.description.length >= 400
 									? post.description.substring(0, 600).concat('...')
 									: post.description}
 							</p>
-							<p class="latest-posts__article-author">
+							<p class="text-[12.5px] font-mono">
 								{post.author} - {new Date(post.date).toLocaleString('en-GB', {
 									day: '2-digit',
 									year: 'numeric',
@@ -223,15 +240,14 @@
 								})}
 							</p>
 						</div>
-					{/if}
-					{#if !post.thumbnail}
-						<h2 class="latest-posts__article-title--primary">{post.title}</h2>
-						<p class="latest-posts__article-description">
+					{:else}
+						<h2 class="text-3xl font-semibold mb-5">{post.title}</h2>
+						<p class="text-base mb-5">
 							{post.description.length >= 400
 								? post.description.substring(0, 600).concat('...')
 								: post.description}
 						</p>
-						<p class="latest-posts__article-author">
+						<p class="text-[12.5px] font-mono">
 							{post.author} - {new Date(post.date).toLocaleString('en-GB', {
 								day: '2-digit',
 								year: 'numeric',
@@ -244,620 +260,3 @@
 		{/each}
 	</ul>
 </section>
-
-<style>
-	.archive-notice {
-		width: fit-content;
-		text-align: center;
-		background: var(--background);
-		margin: 0px auto;
-		padding: 6px 20px;
-		border-radius: 50px;
-		box-shadow:
-			0 0 0 1px rgba(0, 0, 0, 0.03),
-			0 2px 4px rgba(0, 0, 0, 0.05),
-			0 12px 24px rgba(0, 0, 0, 0.05);
-	}
-	.archive-notice > p > a {
-		color: rgb(0, 119, 255);
-	}
-	.gradient-border {
-		--borderWidth: 2px;
-		position: relative;
-		border-radius: var(--borderWidth);
-	}
-	.gradient-border > p {
-		font-size: 15px;
-	}
-	@media (min-width: 768px) {
-		.gradient-border > p {
-			font-size: 16px;
-		}
-	}
-	.gradient-border:after {
-		content: '';
-		position: absolute;
-		top: calc(-1 * var(--borderWidth));
-		left: calc(-1 * var(--borderWidth));
-		height: calc(100% + var(--borderWidth) * 2);
-		width: calc(100% + var(--borderWidth) * 2);
-		background: linear-gradient(
-			60deg,
-			#f79533,
-			#f37055,
-			#ef4e7b,
-			#a166ab,
-			#5073b8,
-			#1098ad,
-			#07b39b,
-			#6fba82
-		);
-		border-radius: calc(2 * var(--borderWidth));
-		z-index: -1;
-		animation: animatedgradient 3s ease alternate infinite;
-		background-size: 300% 300%;
-	}
-
-	@keyframes animatedgradient {
-		0% {
-			background-position: 0% 50%;
-		}
-		50% {
-			background-position: 100% 50%;
-		}
-		100% {
-			background-position: 0% 50%;
-		}
-	}
-
-	.featured-post h2 {
-		font-size: 55px;
-	}
-	.above-fold-grid {
-		display: grid;
-	}
-	.above-fold-grid.full-width-grid {
-		grid-template-columns: repeat(8, 1fr);
-	}
-	.above-fold-grid.left-quater-grid {
-		grid-template-columns: repeat(12, 1fr);
-	}
-	.above-fold-grid.right-quater-grid {
-		grid-template-columns: repeat(8, 1fr);
-	}
-	.above-fold-grid.full-width-grid > .above-fold-grid__middle-column::before,
-	.above-fold-grid.full-width-grid > .above-fold-grid__middle-column::after {
-		display: none;
-	}
-	.above-fold-grid.right-quater-grid > .above-fold-grid__middle-column::before {
-		display: none;
-	}
-	.above-fold-grid.left-quater-grid > .above-fold-grid__middle-column::after {
-		display: none;
-	}
-	.above-fold-grid__left-column {
-		display: flex;
-		flex-direction: column;
-		gap: 10px;
-		grid-column: span 6;
-		position: relative;
-
-		overflow: hidden;
-		order: 1;
-		margin: 0px auto;
-	}
-	.column-label {
-		text-transform: uppercase;
-		font-size: 18px;
-		font-family: var(--font-mono);
-		padding: 10px;
-		text-decoration: underline;
-	}
-	.above-fold-grid__left-column .article-list {
-		display: flex;
-		flex-direction: row;
-		flex-wrap: wrap;
-		gap: 10px;
-		justify-content: center;
-		align-items: center;
-	}
-	.above-fold-grid__middle-column {
-		order: 0;
-		grid-column: span 6;
-		position: relative;
-	}
-	.above-fold-grid__right-column {
-		order: 1;
-		grid-column: span 5;
-	}
-	.above-fold-grid__right-column ul {
-		position: relative;
-	}
-	.article-list {
-		margin-bottom: 20px;
-	}
-	.article-list__item-card {
-		width: 100%;
-	}
-
-	.article-list__item--small .article-list__item-col {
-		display: flex;
-		flex-direction: column;
-	}
-
-	.article-list__item--small .article-list__item-card img {
-		display: none;
-	}
-	.article-list__item--small:nth-last-child(-n + 3) {
-		border: none;
-	}
-	ul li {
-		overflow: hidden;
-	}
-
-	.article-list__item--large .article-list__item-card img {
-		width: 100%;
-		border-radius: 0;
-		margin-bottom: 20px;
-	}
-
-	.article-list__item--large img {
-		height: 320px;
-		min-width: 100dvw;
-		max-width: unset;
-		max-height: unset;
-	}
-
-	.article-list__item--small .article-list__item-card img {
-		max-width: 65px;
-		max-height: 65px;
-		min-width: 65px;
-		min-height: 65px;
-		border-radius: 0;
-	}
-
-	.above-fold-grid__right-column ul li .article-list__item-card h2 {
-		font-size: 22px;
-	}
-
-	.article-list__item--small .article-list__item-card h2,
-	.article-list__item--large .article-list__item-card h2 {
-		font-size: 18px;
-		text-wrap: wrap;
-		max-inline-size: unset;
-		margin-bottom: 10px;
-	}
-	.article-list__item--small .article-list__item-card h2 {
-		font-weight: 100;
-	}
-	.article-list__item--small .article-list__item-author,
-	.article-list__item--large .article-list__item-author {
-		font-size: 12.5px;
-		font-family: var(--font-mono);
-	}
-
-	.article-list__item--small:not(:last-child),
-	.article-list__item--large:not(:last-child) {
-		border-bottom: unset;
-		margin-bottom: 20px;
-	}
-
-	.article-list__item-col h2,
-	.article-list__item-col .article-list__item-author {
-		padding: 0 20px;
-	}
-
-	.above-fold-grid__right-column ul li:nth-child(2)::before,
-	.above-fold-grid__right-column ul li:nth-child(2)::after {
-		display: none;
-	}
-
-	a {
-		color: unset;
-	}
-	a:visited {
-		color: unset;
-	}
-	a:hover .featured-post__title {
-		text-decoration: underline;
-		text-underline-offset: auto;
-	}
-	a:hover,
-	a:hover .featured-post__description {
-		text-decoration: none;
-	}
-	.latest-posts {
-		padding-block: var(--size-9);
-		padding-left: 25px;
-		padding-right: 25px;
-	}
-
-	.featured-post {
-		padding-left: 25px;
-		padding-right: 25px;
-	}
-
-	.featured-post,
-	.featured-post__cover {
-		position: relative;
-	}
-
-	.featured-post__header {
-		display: flex;
-		gap: 10px;
-	}
-
-	.featured-post__icon {
-		font-family: var(--font-mono);
-		display: flex;
-		gap: 10px;
-		width: fit-content;
-		padding: 8px 12px;
-		margin-bottom: 15px;
-		text-transform: uppercase;
-		font-size: 14px;
-		font-weight: 600;
-		background: var(--featured-tag-bg);
-		color: var(--featured-tag-fg);
-	}
-
-	.featured-post__category {
-		color: var(--featured-post-category-color);
-		width: fit-content;
-		border: 1px solid;
-		padding: 8px 12px;
-		margin-bottom: 15px;
-		text-transform: uppercase;
-		font-size: 14px;
-		font-family: var(--font-mono);
-	}
-
-	.featured-post__date {
-		background: black;
-		color: white;
-		padding: 4px 8px 4px 8px;
-		width: fit-content;
-		font-size: 12px;
-	}
-
-	.featured-post__meta {
-		margin: 10px auto;
-	}
-
-	.featured-post__thumbnail {
-		border-radius: 0;
-	}
-
-	.featured-post__title {
-		font-size: 26px;
-		font-family: var(--font-bebas-neue);
-		-webkit-font-smoothing: antialiased;
-		-moz-osx-font-smoothing: grayscale;
-		text-rendering: optimizeLegibility;
-		text-transform: uppercase;
-		max-inline-size: unset;
-		text-wrap: wrap;
-	}
-
-	.featured-post__description {
-		font-size: 14px;
-		margin-bottom: 20px;
-	}
-
-	.featured-post__author {
-		font-size: 12.5px;
-		font-family: var(--font-mono);
-	}
-
-	.latest-posts {
-		display: flex;
-		flex-direction: column;
-		overflow: hidden;
-		position: relative;
-		margin: 0 auto;
-		padding: 30px;
-		max-width: 1600px;
-		width: 100%;
-		justify-content: center;
-		align-items: center;
-		gap: 25px;
-	}
-
-	.latest-posts__label {
-		font-family: var(--font-bebas-neue);
-	}
-
-	.latest-posts__article-list-item {
-		max-inline-size: unset;
-		display: flex;
-		flex-direction: column;
-		margin-bottom: 20px;
-		overflow: unset;
-		width: 100%;
-		margin: 0px auto;
-	}
-
-	.latest-posts__article-meta {
-		max-inline-size: unset;
-		display: flex;
-		flex-direction: column;
-		justify-content: center;
-	}
-
-	.latest-posts__article-list-item:not(:last-child) {
-		border-bottom: 1px solid var(--articles-br);
-		margin-bottom: 20px;
-	}
-
-	.latest-posts__article-title {
-		font-size: var(--font-size-fluid-1);
-		max-inline-size: unset;
-		text-wrap: wrap;
-		margin-bottom: 20px;
-	}
-
-	.latest-posts__article-title--primary {
-		font-weight: 600;
-		font-size: var(--font-size-fluid-2);
-		margin-bottom: 20px;
-		max-inline-size: unset;
-		text-wrap: pretty;
-	}
-
-	.latest-posts__article-thumbnail {
-		margin-bottom: 20px;
-	}
-	.latest-posts__article-description {
-		font-size: 1rem;
-		margin-bottom: 20px;
-	}
-
-	.latest-posts__article-author {
-		font-size: 12.5px;
-		font-family: var(--font-mono);
-		margin-bottom: 20px;
-	}
-
-	.date {
-		color: var(--text-2);
-	}
-
-	.description {
-		margin-top: var(--size-3);
-	}
-
-	@media (min-width: 768px) {
-		.above-fold-grid {
-			display: grid;
-			gap: 40px;
-			grid-template-columns: repeat(10, 1fr);
-			overflow: hidden;
-			position: relative;
-			margin: 0 auto;
-			padding: 30px;
-			max-width: 1320px;
-			width: 100%;
-		}
-		.above-fold-grid__left-column {
-			grid-column: span 4;
-		}
-		.above-fold-grid__middle-column::before {
-			width: 0px;
-		}
-
-		.above-fold-grid__middle-column::after {
-			width: 0px;
-		}
-		.above-fold-grid__right-column {
-			grid-column: 1/-1;
-			border-top: 1px solid var(--articles-br);
-		}
-
-		.above-fold-grid__right-column ul {
-			display: grid;
-			grid-template-rows: 1fr 1fr;
-			grid-template-columns: 1fr 1fr 1fr;
-			gap: 10px;
-			padding: 10px;
-			height: 100%;
-		}
-		.above-fold-grid__right-column ul li:nth-child(2)::before {
-			display: inline;
-			background-color: var(--articles-br);
-			content: '';
-			height: 80%;
-			position: absolute;
-			top: 5%;
-			left: calc((100dvw / 3) - 20px);
-			width: 1px;
-		}
-		.above-fold-grid__right-column ul li:nth-child(2)::after {
-			display: inline;
-			background-color: var(--articles-br);
-			content: '';
-			height: 80%;
-			position: absolute;
-			top: 5%;
-			right: calc((100dvw / 3) - 20px);
-			width: 1px;
-		}
-		.above-fold-grid__left-column {
-			order: unset;
-		}
-
-		.above-fold-grid__left-column .column-label,
-		.above-fold-grid__right-column .column-label {
-			text-align: center;
-			margin: 0px auto;
-		}
-
-		.above-fold-grid__right-column .article-list {
-			border-bottom: 1px solid black;
-		}
-		.article-list {
-			margin-bottom: unset;
-		}
-
-		.article-list__item--small:not(:last-child),
-		.article-list__item--large:not(:last-child) {
-			margin-bottom: unset;
-			border-bottom: 1px solid var(--articles-br);
-		}
-
-		/** Small article cards */
-		.article-list__item--small .article-list__item-card {
-			display: flex;
-			align-items: start;
-			justify-content: center;
-			padding: 15px 10px;
-		}
-
-		.article-list__item--small .article-list__item-col {
-			display: flex;
-			flex-direction: column;
-			align-items: start;
-			justify-content: center;
-		}
-
-		.article-list__item--small .article-list__item-card img {
-			display: none;
-		}
-
-		/** Large article cards */
-		.article-list__item--large .article-list__item-card {
-			padding: 15px 0;
-		}
-
-		.article-list__item--large .article-list__item-col {
-			display: flex;
-			flex-direction: column;
-			align-items: center;
-			text-align: center;
-			justify-content: center;
-		}
-		.article-list__item--large .article-list__item-card img {
-			min-width: 250px;
-			max-width: 250px;
-			min-height: 200px;
-			max-height: 200px;
-			min-height: 65px;
-		}
-		.article-list__item-col h2,
-		.article-list__item-col .article-list__item-author {
-			padding: unset;
-		}
-
-		.latest-posts__article-list-item--link {
-			display: flex;
-			flex-direction: row;
-			gap: 20px;
-		}
-
-		.latest-posts__article-list-item--link img {
-			max-width: 300px;
-			max-height: 300px;
-		}
-	}
-	@media (min-width: 1024px) {
-		.above-fold-grid__right-column ul {
-			gap: 10px;
-		}
-		.article-list__item--small .article-list__item-card img {
-			display: inline;
-			margin-left: 10px;
-		}
-		.above-fold-grid__middle-column::before {
-			background-color: var(--articles-br);
-			content: '';
-			height: 100%;
-			position: absolute;
-			left: calc(40px / -2);
-			top: 0;
-			width: 1px;
-		}
-
-		.above-fold-grid__middle-column::after {
-			background-color: var(--articles-br);
-			content: '';
-			height: 100%;
-			position: absolute;
-			right: calc(40px / -2);
-			top: 0;
-			width: 1px;
-		}
-	}
-	@media (min-width: 1280px) {
-		.above-fold-grid {
-			display: grid;
-			gap: 40px;
-			grid-template-columns: repeat(16, 1fr);
-			overflow: hidden;
-			position: relative;
-			margin: 0 auto;
-			padding: 30px;
-			max-width: 1600px;
-			width: 100%;
-		}
-
-		.above-fold-grid__middle-column {
-			grid-column: span 8;
-			position: relative;
-		}
-
-		.above-fold-grid__right-column {
-			grid-column: 13/-1;
-			border-top: unset;
-		}
-		.above-fold-grid__right-column ul {
-			display: flex;
-			flex-direction: column;
-		}
-		.above-fold-grid__left-column {
-			display: flex;
-			flex-direction: column;
-			gap: 0;
-			grid-column: span 4;
-			position: relative;
-			overflow: hidden;
-		}
-		.above-fold-grid__right-column .article-list {
-			border: none;
-		}
-		.above-fold-grid__right-column {
-			border-bottom: unset;
-		}
-		.above-fold-grid__right-column ul li:nth-child(2)::before,
-		.above-fold-grid__right-column ul li:nth-child(2)::after {
-			display: none;
-		}
-
-		.above-fold-grid__right-column ul li .article-list__item-card h2 {
-			font-size: 16px;
-		}
-
-		.article-list__item--small .article-list__item-col {
-			display: flex;
-			flex-direction: column;
-			align-items: start;
-			justify-content: center;
-		}
-
-		/** Large article cards */
-		.article-list__item--large .article-list__item-card {
-			padding: 15px 0;
-		}
-
-		.article-list__item--large .article-list__item-col {
-			display: flex;
-			flex-direction: column;
-			align-items: center;
-			text-align: center;
-			justify-content: center;
-		}
-		.featured-post {
-			background: var(--featured-article-bg);
-			padding: 15px;
-			border: 1px solid var(--articles-br);
-		}
-	}
-</style>
